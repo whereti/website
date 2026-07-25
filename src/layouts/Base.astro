@@ -1,0 +1,73 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE, REPO, LATEST_VERSION } from "../links";
+
+interface Props {
+  /** Short page title; the home page passes none. */
+  title?: string;
+  description: string;
+  /** Text pages (privacy, legal…) get the narrow reading column. */
+  prose?: boolean;
+}
+const { title, description, prose = false } = Astro.props;
+const fullTitle = title ? `${title} · whereti` : "whereti: find any file on your PC as you type";
+const canonical = new URL(Astro.url.pathname, SITE).href;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "whereti",
+  applicationCategory: "UtilitiesApplication",
+  operatingSystem: "Windows 10, Windows 11",
+  softwareVersion: LATEST_VERSION,
+  license: "https://opensource.org/licenses/MIT",
+  url: SITE,
+  codeRepository: REPO,
+  offers: { "@type": "Offer", price: 0, priceCurrency: "USD" },
+  publisher: { "@type": "Organization", name: "Software Hive S.R.L." },
+};
+
+// Before the first paint: the saved theme, else the system's. Picking the
+// system's theme again forgets the choice (as on silentsilo.com).
+const themeScript = `(function(){try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}})();`;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icon-180.png" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0d18" media="(prefers-color-scheme: dark)" />
+    <meta name="application-name" content="whereti" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="whereti" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${SITE}/og.png`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="sitemap" href="/sitemap.xml" />
+    <script is:inline set:html={themeScript} />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Header />
+    {prose ? (
+      <main id="main" class="wrap prose"><slot /></main>
+    ) : (
+      <main id="main"><slot /></main>
+    )}
+    <Footer />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+  </body>
+</html>

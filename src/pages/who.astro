@@ -1,0 +1,40 @@
+---
+import Base from "../layouts/Base.astro";
+import { CONTACT, SILENTSILO, REPO } from "../links";
+---
+<Base title="Who makes this" description="whereti is made by Alex Stanciu through Software Hive S.R.L., the company that also makes SilentSilo." prose>
+  <h1>Who makes this</h1>
+  <p class="lead">
+    whereti is made by Alex Stanciu, through Software Hive S.R.L., a small software company in Romania. The same company
+    makes <a href={SILENTSILO}>SilentSilo</a>, an encrypted vault for files and passwords.
+  </p>
+
+  <h2>Why whereti</h2>
+  <p>
+    Finding a file on Windows should take the time it takes to type its name. The search built into Windows often does
+    not find it at all, and the good tools that do are made for people who like search syntax. whereti is meant for
+    everyone: type a word, see the file, open it.
+  </p>
+
+  <h2>How it is built</h2>
+  <p>
+    whereti is written in Rust. It reads the file table of each drive directly, follows changes through the journal
+    Windows already keeps, and reads documents in a separate, limited process. The whole design, with its measurements,
+    is in the <a href={REPO}>repository</a>.
+  </p>
+
+  <h2>How it is paid for</h2>
+  <p>
+    whereti is free, and will stay free in full. A <a href="/supporter/">supporter license</a> is planned for people and
+    companies who want to pay for the work. There are no ads and no data to sell, because whereti collects none.
+  </p>
+
+  <h2>If we stop</h2>
+  <p>
+    whereti needs no server and no account, so it keeps working exactly as it does today. The code is MIT licensed, so
+    anyone can continue it.
+  </p>
+
+  <h2>Contact</h2>
+  <p><a href={`mailto:${CONTACT}`}>{CONTACT}</a>. The company's details are in the <a href="/legal/">legal notice</a>.</p>
+</Base>

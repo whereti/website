@@ -1,0 +1,79 @@
+---
+import Icon from "./Icon.astro";
+import { REPO, DOWNLOAD, RELEASED, CONTACT } from "../links";
+
+const nav = [
+  { href: "/#features", label: "Features" },
+  { href: "/download/", label: "Download" },
+  { href: "/faq/", label: "Questions" },
+  { href: "/privacy/", label: "Privacy" },
+  { href: "/supporter/", label: "Support it" },
+];
+const path = Astro.url.pathname;
+---
+<header class="site-header" id="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="whereti home">
+      <img src="/icon.svg" alt="" width="28" height="28" />
+      whereti
+    </a>
+    <nav class="nav" aria-label="Main">
+      {nav.map((n) => <a href={n.href} aria-current={path === n.href ? "page" : undefined}>{n.label}</a>)}
+    </nav>
+    <div class="header-end">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Switch light or dark">
+        <Icon name="sun" class="sun" />
+        <Icon name="moon" class="moon" />
+      </button>
+      <a class="icon-btn" href={REPO} aria-label="Source on GitHub" title="Source on GitHub"><Icon name="github" /></a>
+      <a class="btn btn-primary btn-sm header-dl" href={DOWNLOAD}>
+        <Icon name="download" />{RELEASED ? "Download" : "Get it"}
+      </a>
+      <button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+        <Icon name="menu" />
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobile-menu">
+    <nav aria-label="Menu">
+      {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+      <a href="/security/">Security</a>
+      <a href="/who/">Who makes this</a>
+      <a href={REPO}>Source on GitHub</a>
+      <a href={`mailto:${CONTACT}`}>{CONTACT}</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>(".site-header")!;
+  const onScroll = () => header.toggleAttribute("data-scrolled", window.scrollY > 4);
+  addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Light or dark; choosing the system's own theme forgets the choice.
+  document.querySelector(".theme-toggle")?.addEventListener("click", () => {
+    const root = document.documentElement;
+    const system = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    const now = root.getAttribute("data-theme") ?? system;
+    const next = now === "dark" ? "light" : "dark";
+    try {
+      if (next === system) {
+        localStorage.removeItem("theme");
+      } else {
+        localStorage.setItem("theme", next);
+      }
+    } catch {}
+    root.setAttribute("data-theme", next);
+  });
+
+  const btn = document.querySelector<HTMLButtonElement>(".menu-btn")!;
+  const menu = document.getElementById("mobile-menu")!;
+  const setOpen = (open: boolean) => {
+    menu.toggleAttribute("data-open", open);
+    btn.setAttribute("aria-expanded", String(open));
+  };
+  btn.addEventListener("click", () => setOpen(!menu.hasAttribute("data-open")));
+  addEventListener("keydown", (e) => e.key === "Escape" && setOpen(false));
+  menu.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
+</script>

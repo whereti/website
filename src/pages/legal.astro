@@ -1,0 +1,41 @@
+---
+import Base from "../layouts/Base.astro";
+import { CONTACT, SECURITY, COMPANY_EMAIL } from "../links";
+---
+<Base title="Legal notice" description="The company that publishes whereti, and how to reach it." prose>
+  <h1>Legal notice</h1>
+  <p class="lead">whereti and this website are published by the company below.</p>
+
+  <h2>Publisher</h2>
+  <ul>
+    <li><strong>Company:</strong> SOFTWARE HIVE S.R.L.</li>
+    <li><strong>Registered office:</strong> Str. Zorilor 23, Sat Voicești, 247745, Județul Vâlcea, Romania</li>
+    <li><strong>Trade Register number:</strong> J2026020677006</li>
+    <li><strong>EUID:</strong> ROONRC.J2026020677006</li>
+    <li><strong>VAT and tax identification code (CUI):</strong> RO54366095</li>
+    <li><strong>Email:</strong> <a href={`mailto:${COMPANY_EMAIL}`}>{COMPANY_EMAIL}</a></li>
+  </ul>
+
+  <h2>Contact</h2>
+  <p>
+    About whereti: <a href={`mailto:${CONTACT}`}>{CONTACT}</a>. Security reports:
+    <a href={`mailto:${SECURITY}`}>{SECURITY}</a>, as described on the <a href="/security/">security page</a>. Personal
+    data: see the <a href="/privacy/">privacy page</a>.
+  </p>
+
+  <h2>What is offered</h2>
+  <p>
+    whereti is free software under the MIT license. Nothing is sold on this website today and it takes no payments. When
+    the <a href="/supporter/">supporter license</a> becomes available, its terms will be published here before anything is
+    sold.
+  </p>
+
+  <h2>Trademarks</h2>
+  <p>
+    Microsoft, Windows, Word, Excel, PowerPoint and Outlook are trademarks of Microsoft Corporation. whereti is not
+    affiliated with, sponsored or endorsed by Microsoft.
+  </p>
+
+  <h2>Consumer disputes</h2>
+  <p>The Romanian consumer protection authority is <a href="https://anpc.ro">ANPC</a>.</p>
+</Base>

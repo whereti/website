@@ -1,0 +1,59 @@
+---
+// The search window, drawn in HTML with made-up files: a screenshot would
+// show someone's real file names, and this stays sharp and follows the theme.
+import Icon from "./Icon.astro";
+---
+<div class="appwin" role="img" aria-label="The whereti window: typing invoice shows invoice files by name, then documents that mention invoice in their text, with a preview on the right.">
+  <div class="appwin-title">
+    <img src="/icon.svg" alt="" />whereti
+    <span class="ctl">−  ▢  ✕</span>
+  </div>
+  <div class="appwin-search">
+    <Icon name="search" />
+    <span class="q">invoice<span class="caret"></span></span>
+    <span class="keys"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>Space</kbd></span>
+  </div>
+  <div class="appwin-body">
+    <div class="appwin-list">
+      <div class="appwin-label">3 RESULTS</div>
+      <div class="row sel">
+        <span class="ico pdf">PDF</span>
+        <span style="min-width:0"><div class="name"><mark>invoice</mark>_electricity_feb.pdf</div><div class="path">C:\Users\Ana\Documents\Bills</div></span>
+        <span class="when">today, 09:12</span>
+      </div>
+      <div class="row">
+        <span class="ico xls">XLS</span>
+        <span style="min-width:0"><div class="name"><mark>Invoice</mark>s 2026.xlsx</div><div class="path">D:\Work\Accounts</div></span>
+        <span class="when">yesterday</span>
+      </div>
+      <div class="row">
+        <span class="ico dir"></span>
+        <span style="min-width:0"><div class="name"><mark>Invoice</mark>s</div><div class="path">C:\Users\Ana\Documents</div></span>
+        <span class="when">Mon, 18:40</span>
+      </div>
+      <div class="appwin-label">FOUND IN CONTENTS · 2</div>
+      <div class="row">
+        <span class="ico eml">EML</span>
+        <span style="min-width:0"><div class="name">Re: March order.eml</div><div class="snip">…please find the <mark>invoice</mark> attached, due on 15 April…</div></span>
+        <span class="when">Mar 28</span>
+      </div>
+      <div class="row">
+        <span class="ico doc">DOC</span>
+        <span style="min-width:0"><div class="name">Rental contract.docx</div><div class="snip">…the tenant pays each <mark>invoice</mark> within 10 days…</div></span>
+        <span class="when">Jan 9</span>
+      </div>
+    </div>
+    <div class="appwin-preview">
+      <h4>invoice_electricity_feb.pdf</h4>
+      <div class="facts">PDF · 182 KB · modified today, 09:12 · 214 words</div>
+      <div class="page">
+        <strong>INVOICE</strong> no. 20417<br />
+        Billing period: 1 to 28 February<br />
+        Electricity used: 212 kWh<br />
+        <strong>Total to pay: 58.40</strong><br />
+        Due date: 15 March
+      </div>
+    </div>
+  </div>
+  <div class="appwin-status"><span class="dot"></span>2,518,963 files indexed · up to date</div>
+</div>

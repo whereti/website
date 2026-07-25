@@ -1,0 +1,88 @@
+---
+import Base from "../layouts/Base.astro";
+import { CONTACT, REPO } from "../links";
+---
+<Base title="Questions" description="Answers about whereti: price, privacy, which files it finds, the shortcut, languages and how to remove it." prose>
+  <h1>Questions</h1>
+  <p class="lead">Short answers. If yours is not here, write to <a href={`mailto:${CONTACT}`}>{CONTACT}</a>.</p>
+
+  <h2 id="free">Is it really free?</h2>
+  <p>
+    Yes, all of it, for home and for work. A <a href="/supporter/">supporter license</a> is coming for those who want to
+    help pay for the work. It will not unlock anything that is locked today, because nothing is.
+  </p>
+
+  <h2 id="windows-search">How is it different from Windows search?</h2>
+  <p>
+    whereti reads the file table of each drive directly, the way Windows itself keeps track of files. That is why it
+    finds every file by name in milliseconds, on every drive, not only in a few indexed folders. It also searches inside
+    documents and shows the line where your words appear.
+  </p>
+
+  <h2 id="what">What does it search?</h2>
+  <ul>
+    <li><strong>Names</strong> of all files and folders on your NTFS drives, the standard format of Windows drives.</li>
+    <li>
+      <strong>Contents</strong> of PDF, Word, Excel, PowerPoint, OpenDocument, RTF and HTML files, e-mails saved as .eml or
+      .msg, and text files in Documents, Desktop and Downloads.
+    </li>
+  </ul>
+  <p>
+    Some folders are skipped on purpose, like Windows' own system folders and temporary files. You can add your own in
+    Settings, Search, "Folders whereti skips".
+  </p>
+
+  <h2 id="slow">Will it slow down my PC?</h2>
+  <p>
+    No. Names are read once, in seconds. Documents are read in the background at low priority, and reading pauses while
+    you play a game, give a presentation, run on battery or the PC is busy. After that, whereti only follows changes as they happen.
+  </p>
+
+  <h2 id="internet">Does it send anything over the internet?</h2>
+  <p>No. whereti makes no network connections at all. See the <a href="/privacy/">privacy page</a>.</p>
+
+  <h2 id="admin">Why does it need administrator permission?</h2>
+  <p>
+    To read a drive's file table and its change journal, Windows asks for administrator rights. whereti installs a small
+    background service for that, once. The search window itself runs as you, without special rights.
+  </p>
+
+  <h2 id="shortcut">How do I open it? Can I change the shortcut?</h2>
+  <p>
+    Press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Space</kbd> from any app, or click the whereti icon next to the clock. In
+    Settings, General, choose Change and press the keys you want, or pick one of the suggestions.
+  </p>
+
+  <h2 id="filters">Are there search tricks?</h2>
+  <p>Plain words are enough. If you like, you can add filters:</p>
+  <ul>
+    <li><code>ext:pdf</code> or <code>ext:pdf;docx</code> for file types</li>
+    <li><code>size:&gt;10mb</code> for large files</li>
+    <li><code>dm:today</code>, <code>dm:lastweek</code> for files changed recently</li>
+  </ul>
+
+  <h2 id="languages">Which languages does it speak?</h2>
+  <p>
+    English, Deutsch, Español, Français, Italiano, Polski, Português (Brasil) and Română. It follows the language of
+    Windows; you can pick another in Settings. Languages marked beta have not yet been read by a native speaker; corrections
+    are welcome.
+  </p>
+
+  <h2 id="real">How do I know the download is the real one?</h2>
+  <p>
+    The installer is signed by Software Hive S.R.L. Windows shows the publisher when you run it. The
+    <a href="/security/#checking-the-download">security page</a> shows how to check it yourself.
+  </p>
+
+  <h2 id="remove">How do I remove it?</h2>
+  <p>
+    In Windows, open Settings, Apps, find whereti and choose Uninstall. Everything goes: the programs, the background
+    service, the index and the settings.
+  </p>
+
+  <h2 id="source">Can I see the code?</h2>
+  <p>Yes, all of it is on <a href={REPO}>GitHub</a>, under the MIT license.</p>
+
+  <h2 id="else">Something else</h2>
+  <p>Write to <a href={`mailto:${CONTACT}`}>{CONTACT}</a>. A person reads every message.</p>
+</Base>

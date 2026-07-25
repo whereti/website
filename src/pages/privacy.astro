@@ -1,0 +1,65 @@
+---
+import Base from "../layouts/Base.astro";
+import { CONTACT, COMPANY_EMAIL } from "../links";
+---
+<Base title="Privacy" description="whereti makes no network connections, and this website sets no cookies and loads nothing from elsewhere. The details." prose>
+  <h1>Privacy</h1>
+  <p class="lead">
+    whereti never connects to the internet, and this website keeps no record of you. Below is exactly what that means.
+  </p>
+  <p class="updated">Last changed on 25 October 2026.</p>
+
+  <h2 id="app">The app</h2>
+  <p>
+    None of the programs whereti installs makes a network request: not the search window, not the background service,
+    not the document reader, not the installer. There is no account, no telemetry, no crash reporting and no update
+    check that phones home. To get a new version, you download it from this site or from GitHub yourself.
+  </p>
+  <p>What whereti keeps, all on your PC:</p>
+  <ul>
+    <li>
+      <strong>The index</strong> of file names and document words, in <code>%ProgramData%\whereti</code>. Windows lets
+      only itself and administrators read it, because it lists every file on the PC.
+    </li>
+    <li>
+      <strong>Your settings</strong> (language, theme, shortcut, folders to skip) in
+      <code>%AppData%\whereti\settings.txt</code>.
+    </li>
+  </ul>
+  <p>
+    whereti keeps no history of what you search. The recent files it shows before you type come from Windows' own list
+    of recent files. Uninstalling whereti removes the index and the settings.
+  </p>
+
+  <h2 id="website">This website</h2>
+  <ul>
+    <li>No cookies, no analytics, no tracking pixels, no ads.</li>
+    <li>Nothing is loaded from another site: the font, the icons and the images are served from whereti.com.</li>
+    <li>The server keeps no access log, so ordinary visits leave no IP address behind.</li>
+    <li>
+      The theme you pick (light or dark) is remembered in your own browser, not sent to us. Choosing the theme of your
+      system forgets it.
+    </li>
+    <li>
+      Downloads come from GitHub, which sees the request like any download. GitHub's own privacy statement applies to it.
+    </li>
+  </ul>
+
+  <h2 id="email">If you write to us</h2>
+  <p>
+    E-mails are read by the people who make whereti and kept only as long as the conversation needs. They are not shared
+    or used for anything else.
+  </p>
+
+  <h2 id="rights">Your rights, formally</h2>
+  <p>
+    The controller is Software Hive S.R.L., CUI RO54366095, Voicești, Vâlcea, Romania
+    (<a href={`mailto:${COMPANY_EMAIL}`}>{COMPANY_EMAIL}</a>). Under the GDPR you can ask what we hold about you, have it
+    corrected or deleted, and object to how it is used. In practice we hold nothing unless you have e-mailed us. You can
+    also complain to the Romanian data protection authority,
+    <a href="https://www.dataprotection.ro">ANSPDCP</a>.
+  </p>
+
+  <h2 id="contact">Contact</h2>
+  <p>Questions about privacy: <a href={`mailto:${CONTACT}`}>{CONTACT}</a>.</p>
+</Base>

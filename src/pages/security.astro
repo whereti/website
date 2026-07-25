@@ -1,0 +1,75 @@
+---
+import Base from "../layouts/Base.astro";
+import { SECURITY, REPO, INSTALLER_SHA256, LATEST_INSTALLER_NAME } from "../links";
+---
+<Base title="Security" description="What whereti installs, what each part may do, how to check the installer, and how to report a problem." prose>
+  <h1>Security</h1>
+  <p class="lead">
+    whereti sees every file name on your PC, so it is built to keep that to itself. Here is what runs, what it is allowed
+    to do, and how to check what you downloaded.
+  </p>
+
+  <h2 id="parts">What gets installed</h2>
+  <table>
+    <thead><tr><th>Part</th><th>Runs as</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr><td>whereti.exe</td><td>You</td><td>The search window and the icon next to the clock.</td></tr>
+      <tr><td>whereti-service.exe</td><td>Windows service</td><td>Reads the drives' file tables, keeps the index, answers searches from the window.</td></tr>
+      <tr><td>whereti-extract.exe</td><td>A separate process</td><td>Reads the text out of one document at a time, with limits on time and memory.</td></tr>
+      <tr><td>wt.exe</td><td>You</td><td>The same search from a command line, for those who want it.</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Everything goes to <code>C:\Program Files\whereti</code>. The service talks to the window only through a local pipe
+    on the same PC.
+  </p>
+
+  <h2 id="design">How it is kept safe</h2>
+  <ul>
+    <li><strong>No network.</strong> No part of whereti opens a network connection, so there is nothing to intercept.</li>
+    <li>
+      <strong>The index is locked.</strong> It lives in <code>%ProgramData%\whereti</code>, readable only by Windows and
+      administrators. Other users and ordinary programs cannot list your files through it.
+    </li>
+    <li>
+      <strong>Documents are read apart.</strong> PDF and Office files are complex, and a damaged or crafted one can crash
+      the program reading it. whereti reads them in a separate short-lived process with time and memory limits, so the
+      worst case is one document skipped.
+    </li>
+    <li><strong>Nothing runs from your files.</strong> whereti reads documents as text. It never runs macros or scripts in them.</li>
+    <li><strong>Written in Rust,</strong> which rules out whole families of memory bugs.</li>
+  </ul>
+
+  <h2 id="checking-the-download">Checking the download</h2>
+  <ol>
+    <li>Right-click the installer, choose Properties, then the Digital Signatures tab.</li>
+    <li>The signer must be <strong>Software Hive S.R.L.</strong>, and Details must say the signature is OK.</li>
+    <li>When you run it, Windows shows the same name as the verified publisher.</li>
+  </ol>
+  {INSTALLER_SHA256 && (
+    <p>
+      You can also compare the SHA-256 of {LATEST_INSTALLER_NAME}. In PowerShell:
+      <code>Get-FileHash .\{LATEST_INSTALLER_NAME}</code>. It must be:
+      <span class="hash">{INSTALLER_SHA256}</span>
+    </p>
+  )}
+  <p>Only download whereti from whereti.com or from <a href={`${REPO}/releases`}>its GitHub releases</a>.</p>
+
+  <h2 id="limits">What this does not protect against</h2>
+  <ul>
+    <li>
+      An administrator account on the same PC can read the index, as it can read your files anyway.
+    </li>
+    <li>Malware already running as administrator can do anything, with or without whereti.</li>
+    <li>
+      There has been no independent security audit yet. The code is open for anyone to review.
+    </li>
+  </ul>
+
+  <h2 id="reporting">Reporting a problem</h2>
+  <p>
+    Write to <a href={`mailto:${SECURITY}`}>{SECURITY}</a> with what you found and how to reproduce it. You will get a
+    reply within a few days. Please give us a reasonable time to fix it before making it public. We will credit you if
+    you want.
+  </p>
+</Base>

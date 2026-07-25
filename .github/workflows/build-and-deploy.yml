@@ -1,0 +1,63 @@
+name: Build and Deploy
+
+# Same pipeline as silentsilo.com: build the static site into an nginx image,
+# push it to the GitHub registry, then ask Coolify to redeploy. Actions are
+# pinned to commits, not to tags that can be moved.
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: docker/setup-buildx-action@37fe631027851001ddb9b187196cc803df7f5f0e # v4.3.0
+
+      - name: Log in to the registry
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a # v7.3.0
+        with:
+          context: .
+          file: deploy/Dockerfile
+          push: true
+          tags: |
+            ghcr.io/whereti/website:latest
+            ghcr.io/whereti/website:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # Skipped rather than failed when no deployment is wired up yet.
+      - name: Trigger Coolify deploy
+        env:
+          WEBHOOKS: ${{ secrets.COOLIFY_WEBHOOKS }}
+          COOLIFY_API_TOKEN: ${{ secrets.COOLIFY_API_TOKEN }}
+        run: |
+          if [ -z "$WEBHOOKS" ]; then
+            echo "No COOLIFY_WEBHOOKS set, nothing to deploy to."
+            exit 0
+          fi
+          IFS=',' read -ra HOOKS <<< "$WEBHOOKS"
+          for hook in "${HOOKS[@]}"; do
+            hook=$(echo "$hook" | xargs)
+            [ -z "$hook" ] && continue
+            echo "Triggering deploy hook"
+            if [ -n "$COOLIFY_API_TOKEN" ]; then
+              curl -fsS -X GET "$hook" -H "Authorization: Bearer $COOLIFY_API_TOKEN"
+            else
+              curl -fsS -X GET "$hook"
+            fi
+          done

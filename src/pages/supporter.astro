@@ -1,0 +1,32 @@
+---
+import Base from "../layouts/Base.astro";
+import { CONTACT } from "../links";
+---
+<Base title="Support whereti" description="whereti is free in full. A supporter license is coming for those who want to pay for its development." prose>
+  <h1>Support whereti</h1>
+  <p class="lead">whereti is free, all of it, for everyone. If it saves you time, you will soon be able to give back.</p>
+
+  <div class="note soon">
+    <strong>Coming soon.</strong> The supporter license is not on sale yet. Nothing is charged on this site today.
+  </div>
+
+  <h2>What it will be</h2>
+  <ul>
+    <li>A license you buy once, for yourself or for your company.</li>
+    <li>It pays for new features, fixes and the native-speaker review of every language.</li>
+    <li>You enter the key in whereti, in Settings, About. No account and no sign-in.</li>
+  </ul>
+
+  <h2>What it will not be</h2>
+  <ul>
+    <li>Nothing that works today will be taken away or locked behind it.</li>
+    <li>No account, no subscription you forget to cancel, no tracking.</li>
+  </ul>
+
+  <h2>Other ways to help today</h2>
+  <ul>
+    <li>Tell a friend or a colleague who loses files.</li>
+    <li>Report a bug, or a translation that reads badly, to <a href={`mailto:${CONTACT}`}>{CONTACT}</a>.</li>
+    <li>Companies: write to us if you want to support whereti before the license exists.</li>
+  </ul>
+</Base>
