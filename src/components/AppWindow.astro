@@ -1,59 +1,125 @@
 ---
-// The search window, drawn in HTML with made-up files: a screenshot would
-// show someone's real file names, and this stays sharp and follows the theme.
+// The search window, drawn in HTML with made-up files (a screenshot would
+// show someone's real files). It types a few searches by itself; with
+// reduced motion it stays on the first one.
 import Icon from "./Icon.astro";
 ---
-<div class="appwin" role="img" aria-label="The whereti window: typing invoice shows invoice files by name, then documents that mention invoice in their text, with a preview on the right.">
+<div class="appwin live" role="img" aria-label="The whereti window: as a word is typed, matching files appear by name, then documents that contain the word.">
   <div class="appwin-title">
     <img src="/icon.svg" alt="" />whereti
-    <span class="ctl">−  ▢  ✕</span>
+    <span class="ctl" aria-hidden="true"><i></i><i></i><i></i></span>
   </div>
   <div class="appwin-search">
     <Icon name="search" />
-    <span class="q">invoice<span class="caret"></span></span>
+    <span class="q"><span data-q>invoice</span><span class="caret"></span></span>
     <span class="keys"><kbd>Ctrl</kbd><kbd>Alt</kbd><kbd>Space</kbd></span>
   </div>
-  <div class="appwin-body">
-    <div class="appwin-list">
-      <div class="appwin-label">3 RESULTS</div>
-      <div class="row sel">
-        <span class="ico pdf">PDF</span>
-        <span style="min-width:0"><div class="name"><mark>invoice</mark>_electricity_feb.pdf</div><div class="path">C:\Users\Ana\Documents\Bills</div></span>
-        <span class="when">today, 09:12</span>
-      </div>
-      <div class="row">
-        <span class="ico xls">XLS</span>
-        <span style="min-width:0"><div class="name"><mark>Invoice</mark>s 2026.xlsx</div><div class="path">D:\Work\Accounts</div></span>
-        <span class="when">yesterday</span>
-      </div>
-      <div class="row">
-        <span class="ico dir"></span>
-        <span style="min-width:0"><div class="name"><mark>Invoice</mark>s</div><div class="path">C:\Users\Ana\Documents</div></span>
-        <span class="when">Mon, 18:40</span>
-      </div>
-      <div class="appwin-label">FOUND IN CONTENTS · 2</div>
-      <div class="row">
-        <span class="ico eml">EML</span>
-        <span style="min-width:0"><div class="name">Re: March order.eml</div><div class="snip">…please find the <mark>invoice</mark> attached, due on 15 April…</div></span>
-        <span class="when">Mar 28</span>
-      </div>
-      <div class="row">
-        <span class="ico doc">DOC</span>
-        <span style="min-width:0"><div class="name">Rental contract.docx</div><div class="snip">…the tenant pays each <mark>invoice</mark> within 10 days…</div></span>
-        <span class="when">Jan 9</span>
-      </div>
-    </div>
-    <div class="appwin-preview">
-      <h4>invoice_electricity_feb.pdf</h4>
-      <div class="facts">PDF · 182 KB · modified today, 09:12 · 214 words</div>
-      <div class="page">
-        <strong>INVOICE</strong> no. 20417<br />
-        Billing period: 1 to 28 February<br />
-        Electricity used: 212 kWh<br />
-        <strong>Total to pay: 58.40</strong><br />
-        Due date: 15 March
-      </div>
-    </div>
+  <div class="appwin-list" data-list>
+    <div class="appwin-label">3 RESULTS</div>
+    <div class="row sel"><span class="ico pdf">PDF</span><span class="txt"><span class="name"><mark>invoice</mark>_electricity_feb.pdf</span><span class="path">C:\Users\Ana\Documents\Bills</span></span><span class="when">today, 09:12</span></div>
+    <div class="row"><span class="ico xls">XLS</span><span class="txt"><span class="name"><mark>Invoice</mark>s 2026.xlsx</span><span class="path">D:\Work\Accounts</span></span><span class="when">yesterday</span></div>
+    <div class="row"><span class="ico dir"></span><span class="txt"><span class="name"><mark>Invoice</mark>s</span><span class="path">C:\Users\Ana\Documents</span></span><span class="when">Mon, 18:40</span></div>
+    <div class="appwin-label">FOUND IN CONTENTS · 2</div>
+    <div class="row"><span class="ico eml">EML</span><span class="txt"><span class="name">Re: March order.eml</span><span class="snip">…please find the <mark>invoice</mark> attached, due on 15 April…</span></span><span class="when">Mar 28</span></div>
+    <div class="row"><span class="ico doc">DOC</span><span class="txt"><span class="name">Rental contract.docx</span><span class="snip">…the tenant pays each <mark>invoice</mark> within 10 days…</span></span><span class="when">Jan 9</span></div>
   </div>
-  <div class="appwin-status"><span class="dot"></span>2,518,963 files indexed · up to date</div>
+  <div class="appwin-status"><span class="dot"></span><span data-status>2,518,963 files indexed · up to date · 1 ms</span></div>
 </div>
+
+<script>
+  type Row = [kind: string, name: string, sub: string, when: string, snippet?: boolean];
+  type Scene = { q: string; names: Row[]; contents: Row[]; ms: number };
+
+  // {x} marks the found words
+  const scenes: Scene[] = [
+    {
+      q: "invoice",
+      ms: 1,
+      names: [
+        ["pdf", "{invoice}_electricity_feb.pdf", "C:\\Users\\Ana\\Documents\\Bills", "today, 09:12"],
+        ["xls", "{Invoice}s 2026.xlsx", "D:\\Work\\Accounts", "yesterday"],
+        ["dir", "{Invoice}s", "C:\\Users\\Ana\\Documents", "Mon, 18:40"],
+      ],
+      contents: [
+        ["eml", "Re: March order.eml", "…please find the {invoice} attached, due on 15 April…", "Mar 28", true],
+        ["doc", "Rental contract.docx", "…the tenant pays each {invoice} within 10 days…", "Jan 9", true],
+      ],
+    },
+    {
+      q: "holiday photos",
+      ms: 2,
+      names: [
+        ["dir", "{Holiday photos} 2025", "D:\\Pictures", "Aug 30"],
+        ["dir", "Greece {holiday} - {photos} to print", "C:\\Users\\Ana\\Desktop", "Sep 2"],
+      ],
+      contents: [
+        ["ppt", "Family album.pptx", "…best {holiday photos} from the island, slide 4…", "Sep 14", true],
+      ],
+    },
+    {
+      q: "ext:pdf contract",
+      ms: 1,
+      names: [
+        ["pdf", "{Contract} car insurance.pdf", "C:\\Users\\Ana\\Documents\\Car", "Oct 3"],
+        ["pdf", "Work {contract} signed.pdf", "D:\\Work\\HR", "2024"],
+      ],
+      contents: [
+        ["pdf", "Apartment lease.pdf", "…this {contract} ends on 31 December and renews…", "Feb 11", true],
+        ["pdf", "Phone plan terms.pdf", "…you can cancel the {contract} at any time…", "Jun 5", true],
+      ],
+    },
+  ];
+
+  const win = document.querySelector<HTMLElement>(".appwin.live");
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (win && !reduce) {
+    const qEl = win.querySelector<HTMLElement>("[data-q]")!;
+    const list = win.querySelector<HTMLElement>("[data-list]")!;
+    const status = win.querySelector<HTMLElement>("[data-status]")!;
+    const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+    const marked = (s: string) => esc(s).replace(/\{([^}]*)\}/g, "<mark>$1</mark>");
+    const row = (r: Row, i: number, sel: boolean) =>
+      `<div class="row${sel ? " sel" : ""}" style="animation-delay:${i * 45}ms"><span class="ico ${r[0]}">${
+        r[0] === "dir" ? "" : r[0].toUpperCase()
+      }</span><span class="txt"><span class="name">${marked(r[1])}</span><span class="${r[4] ? "snip" : "path"}">${marked(
+        r[2],
+      )}</span></span><span class="when">${r[3]}</span></div>`;
+    const render = (s: Scene) => {
+      const n = s.names.length;
+      list.innerHTML =
+        `<div class="appwin-label">${n} RESULT${n === 1 ? "" : "S"}</div>` +
+        s.names.map((r, i) => row(r, i, i === 0)).join("") +
+        `<div class="appwin-label">FOUND IN CONTENTS · ${s.contents.length}</div>` +
+        s.contents.map((r, i) => row(r, n + i, false)).join("");
+      status.textContent = `2,518,963 files indexed · up to date · ${s.ms} ms`;
+    };
+    const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+    let visible = true;
+    new IntersectionObserver(([e]) => (visible = e.isIntersecting)).observe(win);
+    (async () => {
+      let i = 0;
+      await sleep(3200);
+      for (;;) {
+        if (!visible || document.hidden) {
+          await sleep(500);
+          continue;
+        }
+        const cur = scenes[i].q;
+        for (let k = cur.length; k >= 0; k--) {
+          qEl.textContent = cur.slice(0, k);
+          await sleep(28);
+        }
+        i = (i + 1) % scenes.length;
+        const next = scenes[i];
+        list.classList.add("fade");
+        for (let k = 1; k <= next.q.length; k++) {
+          qEl.textContent = next.q.slice(0, k);
+          await sleep(75 + Math.random() * 60);
+        }
+        render(next);
+        list.classList.remove("fade");
+        await sleep(3400);
+      }
+    })();
+  }
+</script>

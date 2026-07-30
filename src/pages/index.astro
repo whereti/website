@@ -4,189 +4,142 @@ import AppWindow from "../components/AppWindow.astro";
 import DownloadButton from "../components/DownloadButton.astro";
 import Icon from "../components/Icon.astro";
 import { REPO, LATEST_VERSION, INSTALLER_SIZE, RELEASED } from "../links";
-
-const features = [
-  {
-    icon: "bolt",
-    title: "Names, the moment you type",
-    text: "whereti reads the file table of every NTFS drive, so millions of names are searched in a few milliseconds. No waiting, no spinning wheel.",
-  },
-  {
-    icon: "doc",
-    title: "The words inside your documents",
-    text: "PDF, Word, Excel, PowerPoint, OpenDocument, e-mails and text files. Type a word you remember and the document comes up, with the line where it appears.",
-  },
-  {
-    icon: "check",
-    title: "Always up to date",
-    text: "A new, renamed or deleted file shows up in the results within a second. Saved documents are read again a few seconds later.",
-  },
-  {
-    icon: "eye",
-    title: "Look before you open",
-    text: "The preview next to the results shows the text of the file with your words marked, or what a folder holds.",
-  },
-  {
-    icon: "keyboard",
-    title: "One shortcut, from any app",
-    text: "Press Ctrl+Alt+Space anywhere and whereti appears. Pick another shortcut in Settings if you prefer.",
-  },
-  {
-    icon: "drag",
-    title: "Works like Explorer",
-    text: "Enter opens, Ctrl+Enter shows the file in Explorer, right-click gives the usual menu, and you can drag a result into any app or e-mail.",
-  },
-  {
-    icon: "filter",
-    title: "Filters, if you want them",
-    text: "Type ext:pdf, size:>10mb or dm:today to narrow things down. You never have to, plain words work.",
-  },
-  {
-    icon: "feather",
-    title: "Light on your PC",
-    text: "The index is built in the background at low priority. It keeps about 55 bytes of memory per file and steps aside while you play, present or run on battery.",
-  },
-  {
-    icon: "globe",
-    title: "In your language",
-    text: "English, Deutsch, Español, Français, Italiano, Polski, Português and Română, following Windows unless you pick one.",
-  },
-] as const;
 ---
 <Base description="whereti finds any file on your Windows PC as you type, by its name or by the words inside it. Free, open source, and nothing leaves your computer.">
-  <section class="hero">
-    <div class="wrap">
-      <span class="eyebrow">Free and open source · For Windows 10 and 11</span>
-      <h1>Find any file on your PC <span class="grad">the moment you type.</span></h1>
-      <p class="lead">
-        whereti searches the names of every file on your drives and the words inside your documents. Results appear
-        while you type, and nothing leaves your computer.
-      </p>
-      <div class="hero-actions">
-        <DownloadButton />
-        <a class="btn btn-ghost" href="#how">See how it works</a>
+  <section class="hero2">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap hero2-grid">
+      <div class="hero2-copy">
+        <span class="eyebrow"><span class="spark"></span>Free and open source · Windows 10 and 11</span>
+        <h1>Find any file.<br /><span class="grad">As you type.</span></h1>
+        <p class="lead">
+          Every file name on your drives and every word inside your documents, searched in a millisecond. Nothing leaves
+          your PC.
+        </p>
+        <div class="hero-actions">
+          <DownloadButton />
+          <a class="btn btn-ghost" href="#features">What it does</a>
+        </div>
+        <ul class="ticks">
+          <li><Icon name="check" />No account</li>
+          <li><Icon name="check" />No internet</li>
+          <li><Icon name="check" />{RELEASED ? `v${LATEST_VERSION} · ${INSTALLER_SIZE}` : "Coming soon"}</li>
+        </ul>
       </div>
-      <p class="hero-meta">
-        {RELEASED ? `Version ${LATEST_VERSION} · ${INSTALLER_SIZE} · ` : "First public version coming soon · "}Windows 10 and 11, 64-bit
-      </p>
-      <div class="hero-shot"><AppWindow /></div>
+      <div class="hero2-shot"><AppWindow /></div>
     </div>
   </section>
 
-  <section class="sec sec-alt" id="how">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="kicker">How it works</span>
-        <h2>Install it once, then just type</h2>
-        <p>There is nothing to set up. whereti builds its index on its own and keeps it current.</p>
-      </div>
-      <div class="steps">
-        <div class="card">
-          <h3>Install</h3>
-          <p>Run the installer and allow it once as administrator. Reading a drive's file table needs that permission.</p>
-        </div>
-        <div class="card">
-          <h3>It learns your files</h3>
-          <p>The names of all your files are ready in seconds, usually under a minute. Your documents are read in the background after that.</p>
-        </div>
-        <div class="card">
-          <h3>Press the shortcut and type</h3>
-          <p>Ctrl+Alt+Space from any app. Names match first, then the documents that contain your words.</p>
-        </div>
-      </div>
+  <section class="stats" aria-label="whereti in numbers">
+    <div class="wrap stats-grid">
+      <div><b>1 ms</b><span>to search millions of names</span></div>
+      <div><b>&lt; 1 s</b><span>for a new file to show up</span></div>
+      <div><b>0</b><span>network connections</span></div>
+      <div><b>8</b><span>languages</span></div>
     </div>
   </section>
 
   <section class="sec" id="features">
     <div class="wrap">
-      <div class="sec-head">
-        <span class="kicker">Features</span>
-        <h2>Everything in the app is free, for everyone</h2>
-        <p>No trial, no locked features, no account.</p>
+      <div class="sec-head center">
+        <span class="kicker">Everything is free</span>
+        <h2>Search the way you remember</h2>
+        <p>By a piece of the name, by a word inside, by when you last touched it. No setup, no syntax to learn.</p>
       </div>
-      <div class="grid grid-3">
-        {features.map((f) => (
-          <div class="card">
-            <div class="ic"><Icon name={f.icon} /></div>
-            <h3>{f.title}</h3>
-            <p>{f.text}</p>
+
+      <div class="bento">
+        <article class="tile t-docs">
+          <div class="tile-copy">
+            <h3>Inside your documents</h3>
+            <p>Type a word you remember and the document comes up, with the line where it appears.</p>
           </div>
-        ))}
+          <div class="doc-chips" aria-hidden="true">
+            <span class="ico pdf">PDF</span><span class="ico doc">DOC</span><span class="ico xls">XLS</span>
+            <span class="ico ppt">PPT</span><span class="ico eml">EML</span><span class="ico txt">TXT</span>
+          </div>
+          <div class="snippets" aria-hidden="true">
+            <div class="snippet"><span class="ico pdf">PDF</span><span><b>Apartment lease.pdf</b>…the deposit is returned within <mark>30 days</mark> after the keys…</span></div>
+            <div class="snippet"><span class="ico eml">EML</span><span><b>Re: Payment terms.eml</b>…we can pay in <mark>30 days</mark> from the invoice date…</span></div>
+            <div class="snippet"><span class="ico doc">DOC</span><span><b>Warranty card.docx</b>…returns are accepted for <mark>30 days</mark> with the receipt…</span></div>
+          </div>
+        </article>
+
+        <article class="tile t-keys">
+          <div class="keycaps" aria-hidden="true"><kbd>Ctrl</kbd><span>+</span><kbd>Alt</kbd><span>+</span><kbd>Space</kbd></div>
+          <h3>From any app</h3>
+          <p>One shortcut opens whereti over whatever you are doing. Pick your own in Settings.</p>
+        </article>
+
+        <article class="tile t-live">
+          <div class="livefeed" aria-hidden="true">
+            <div class="lf new"><span class="ico doc">DOC</span><span class="n">Offer for Maria.docx</span><em>just now</em></div>
+            <div class="lf"><span class="ico xls">XLS</span><span class="n">Budget October.xlsx</span><em>2 min</em></div>
+            <div class="lf"><span class="ico pdf">PDF</span><span class="n">Boarding pass.pdf</span><em>1 h</em></div>
+          </div>
+          <h3>Always up to date</h3>
+          <p>New, renamed or deleted files show up within a second.</p>
+        </article>
+
+        <article class="tile t-private">
+          <div class="big-ic" aria-hidden="true"><Icon name="lock" /></div>
+          <h3>Private by design</h3>
+          <p>No account, no tracking, no network at all. The index is readable only by Windows and administrators.</p>
+          <a href="/privacy/">How private →</a>
+        </article>
+
+        <article class="tile t-preview">
+          <h3>Look before you open</h3>
+          <p>The preview shows the text with your words marked, or what a folder holds.</p>
+          <div class="mini-preview" aria-hidden="true">
+            <i style="width:82%"></i><i style="width:64%"></i><i class="hit" style="width:48%"></i><i style="width:75%"></i>
+          </div>
+        </article>
+
+        <article class="tile t-light">
+          <div class="big-ic" aria-hidden="true"><Icon name="feather" /></div>
+          <h3>Light on your PC</h3>
+          <p>About 55 bytes of memory per file. Steps aside while you play, present or run on battery.</p>
+        </article>
+
+        <article class="tile t-explorer">
+          <h3>Works like Explorer</h3>
+          <p>Enter opens, Ctrl+Enter shows it in its folder, right-click gives the usual menu, drag a result into any app.</p>
+        </article>
+
+        <article class="tile t-filters">
+          <h3>Filters, if you like</h3>
+          <div class="chips" aria-hidden="true"><code>ext:pdf</code><code>size:&gt;10mb</code><code>dm:today</code></div>
+          <p>Plain words always work too.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="sec sec-alt" id="private">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="kicker">Private</span>
-        <h2>Your files stay on your PC</h2>
-        <p>whereti never connects to the internet. There is no account, no tracking and nothing to send.</p>
-      </div>
-      <div class="grid grid-3">
-        <div class="card">
-          <div class="ic"><Icon name="lock" /></div>
-          <h3>No network at all</h3>
-          <p>None of the programs whereti installs opens a network connection. Search works the same with the cable unplugged.</p>
-        </div>
-        <div class="card">
-          <div class="ic"><Icon name="shield" /></div>
-          <h3>The index is protected</h3>
-          <p>It is kept in %ProgramData%\whereti, readable only by Windows itself and administrators.</p>
-        </div>
-        <div class="card">
-          <div class="ic"><Icon name="doc" /></div>
-          <h3>Documents read apart</h3>
-          <p>Documents are opened by a separate small program, so a damaged or hostile file cannot take whereti down.</p>
-        </div>
-      </div>
-      <p style="margin-top:20px"><a href="/privacy/">Read the privacy page</a> · <a href="/security/">How whereti is built to be safe</a></p>
-    </div>
-  </section>
-
-  <section class="sec" id="compare">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="kicker">Compared</span>
-        <h2>Why not the search that comes with Windows?</h2>
-        <p>Windows search is slow to answer and often misses files outside a few folders. whereti answers at once, everywhere.</p>
-      </div>
-      <div class="table-wrap">
-        <table class="compare">
-          <thead>
-            <tr><th></th><th>whereti</th><th>Windows search</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>File names, all drives</td><td>Every file, in milliseconds</td><td>Indexed folders only, often slow</td></tr>
-            <tr><td>Words inside documents</td><td>PDF, Office, e-mails, text, with the line shown</td><td>Some types, without the line</td></tr>
-            <tr><td>New and renamed files</td><td>In the results within a second</td><td>When the indexer gets to them</td></tr>
-            <tr><td>Internet and ads</td><td>Never</td><td>Web results mixed in by default</td></tr>
-            <tr><td>Source code</td><td>Open, MIT license</td><td>Closed</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec sec-alt">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="kicker">Open source</span>
+  <section class="trust">
+    <div class="wrap trust-card">
+      <div>
+        <span class="kicker">Open source · MIT</span>
         <h2>Check it rather than trust it</h2>
         <p>
-          All of whereti is on GitHub under the MIT license: the app, the background service, the document reader and
-          the installer. Builds for download are signed by Software Hive S.R.L.
+          All of whereti is on GitHub: the app, the background service, the document reader and the installer. Every
+          download is signed by Software Hive S.R.L.
         </p>
       </div>
-      <a class="btn btn-ghost" href={REPO}><Icon name="github" />Source on GitHub</a>
+      <div class="trust-actions">
+        <a class="btn btn-ghost" href={REPO}><Icon name="github" />Source on GitHub</a>
+        <a class="btn btn-ghost" href="/security/"><Icon name="shield" />How it stays safe</a>
+      </div>
     </div>
   </section>
 
-  <section class="cta">
+  <section class="cta2">
     <div class="wrap">
-      <h2>Stop looking for files.</h2>
-      <p>Install whereti, press Ctrl+Alt+Space, and type the first word that comes to mind.</p>
-      <DownloadButton />
+      <div class="cta2-card">
+        <img src="/icon.svg" alt="" width="72" height="72" />
+        <h2>Stop looking for files.</h2>
+        <p>Install whereti, press Ctrl+Alt+Space, type the first word that comes to mind.</p>
+        <DownloadButton />
+      </div>
     </div>
   </section>
 </Base>
