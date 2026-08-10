@@ -21,7 +21,10 @@ import { CONTACT, REPO } from "../links";
 
   <h2 id="what">What does it search?</h2>
   <ul>
-    <li><strong>Names</strong> of all files and folders on your NTFS drives, the standard format of Windows drives.</li>
+    <li>
+      <strong>Names</strong> of all files and folders on your drives: internal and external disks, USB sticks and memory
+      cards. A stick shows up in the results a few seconds after you plug it in, and leaves when you take it out.
+    </li>
     <li>
       <strong>Contents</strong> of PDF, Word, Excel, PowerPoint, OpenDocument, RTF and HTML files, e-mails saved as .eml or
       .msg, and text files in Documents, Desktop and Downloads.
@@ -30,6 +33,12 @@ import { CONTACT, REPO } from "../links";
   <p>
     Some folders are skipped on purpose, like Windows' own system folders and temporary files. You can add your own in
     Settings, Search, "Folders whereti skips".
+  </p>
+
+  <h2 id="usb">Can I still remove a USB stick safely?</h2>
+  <p>
+    Yes. whereti keeps nothing open on USB sticks and memory cards: it reads them now and then and lets go, so Windows can
+    eject them at any time.
   </p>
 
   <h2 id="slow">Will it slow down my PC?</h2>
