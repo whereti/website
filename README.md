@@ -50,8 +50,9 @@ All download data is in **`src/links.ts`**, edited by hand:
 
 ## Promises the site makes
 
-The pages say that whereti never connects to the internet and that this site
-uses no cookies, no analytics and nothing from other domains. Keep both true:
+The pages say that whereti's only request is a daily update check (version
+number only, can be turned off) and that this site uses no cookies, no
+analytics and nothing from other domains. Keep both true:
 the font is self-hosted, and `deploy/security-headers.conf` enforces the second
 with a strict Content Security Policy. Writing style: plain, short sentences, no
 long dashes.

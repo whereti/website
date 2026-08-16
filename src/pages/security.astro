@@ -26,7 +26,15 @@ import { SECURITY, REPO, INSTALLER_SHA256, LATEST_INSTALLER_NAME } from "../link
 
   <h2 id="design">How it is kept safe</h2>
   <ul>
-    <li><strong>No network.</strong> No part of whereti opens a network connection, so there is nothing to intercept.</li>
+    <li>
+      <strong>Almost no network.</strong> The service, the document reader and the installer never connect to anything.
+      The search window asks for updates at most once a day, sending only its version number.
+    </li>
+    <li>
+      <strong>Updates are checked on your PC.</strong> An update is installed only if the installer carries a valid
+      signature from Software Hive S.R.L. and matches the checksum published with the release. Someone who took over the
+      update server could stop updates, but could not make whereti install anything.
+    </li>
     <li>
       <strong>The index is locked.</strong> It lives in <code>%ProgramData%\whereti</code>, readable only by Windows and
       administrators. Other users and ordinary programs cannot list your files through it.

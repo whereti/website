@@ -5,7 +5,7 @@ import DownloadButton from "../components/DownloadButton.astro";
 import Icon from "../components/Icon.astro";
 import { REPO, LATEST_VERSION, INSTALLER_SIZE, RELEASED } from "../links";
 ---
-<Base description="whereti finds any file on your Windows PC as you type, by its name or by the words inside it. Free, open source, and nothing leaves your computer.">
+<Base description="whereti finds any file on your Windows PC as you type, by its name or by the words inside it. Free, open source, and your files never leave your computer.">
   <section class="hero2">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="wrap hero2-grid">
@@ -13,8 +13,8 @@ import { REPO, LATEST_VERSION, INSTALLER_SIZE, RELEASED } from "../links";
         <span class="eyebrow"><span class="spark"></span>Free and open source · Windows 10 and 11</span>
         <h1>Find any file.<br /><span class="grad">As you type.</span></h1>
         <p class="lead">
-          Every file name on your drives and every word inside your documents, searched in a millisecond. Nothing leaves
-          your PC.
+          Every file name on your drives and every word inside your documents, searched in a millisecond. Your files
+          never leave your PC.
         </p>
         <div class="hero-actions">
           <DownloadButton />
@@ -22,7 +22,7 @@ import { REPO, LATEST_VERSION, INSTALLER_SIZE, RELEASED } from "../links";
         </div>
         <ul class="ticks">
           <li><Icon name="check" />No account</li>
-          <li><Icon name="check" />No internet</li>
+          <li><Icon name="check" />No tracking</li>
           <li><Icon name="check" />{RELEASED ? `v${LATEST_VERSION} · ${INSTALLER_SIZE}` : "Coming soon"}</li>
         </ul>
       </div>
@@ -34,7 +34,7 @@ import { REPO, LATEST_VERSION, INSTALLER_SIZE, RELEASED } from "../links";
     <div class="wrap stats-grid">
       <div><b>1 ms</b><span>to search millions of names</span></div>
       <div><b>&lt; 1 s</b><span>for a new file to show up</span></div>
-      <div><b>0</b><span>network connections</span></div>
+      <div><b>0</b><span>accounts, ads or trackers</span></div>
       <div><b>8</b><span>languages</span></div>
     </div>
   </section>
@@ -83,7 +83,7 @@ import { REPO, LATEST_VERSION, INSTALLER_SIZE, RELEASED } from "../links";
         <article class="tile t-private">
           <div class="big-ic" aria-hidden="true"><Icon name="lock" /></div>
           <h3>Private by design</h3>
-          <p>No account, no tracking, no network at all. The index is readable only by Windows and administrators.</p>
+          <p>No account, no tracking. Your files and searches never leave your PC; the only request is one update check a day, which you can turn off.</p>
           <a href="/privacy/">How private →</a>
         </article>
 

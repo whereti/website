@@ -48,7 +48,18 @@ import { CONTACT, REPO } from "../links";
   </p>
 
   <h2 id="internet">Does it send anything over the internet?</h2>
-  <p>No. whereti makes no network connections at all. See the <a href="/privacy/">privacy page</a>.</p>
+  <p>
+    Your files, their names and your searches never leave your PC. The only request whereti makes is the update check:
+    at most once a day it asks releases.whereti.com whether a newer version exists, sending only its own version number.
+    You can turn it off in Settings, General. See the <a href="/privacy/">privacy page</a> for every detail.
+  </p>
+
+  <h2 id="updates">How do updates work?</h2>
+  <p>
+    When a new version exists, whereti says so at the bottom of its window and in Settings, About. Nothing is downloaded
+    until you choose Install update. whereti then fetches the installer from its GitHub releases, checks that it is signed
+    by Software Hive S.R.L. and has not been changed, and installs it after Windows asks for your permission.
+  </p>
 
   <h2 id="admin">Why does it need administrator permission?</h2>
   <p>

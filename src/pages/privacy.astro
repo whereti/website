@@ -2,19 +2,35 @@
 import Base from "../layouts/Base.astro";
 import { CONTACT, COMPANY_EMAIL } from "../links";
 ---
-<Base title="Privacy" description="whereti makes no network connections, and this website sets no cookies and loads nothing from elsewhere. The details." prose>
+<Base title="Privacy" description="Your files and searches never leave your PC. whereti asks for updates once a day at most, and this website sets no cookies. The details." prose>
   <h1>Privacy</h1>
   <p class="lead">
-    whereti never connects to the internet, and this website keeps no record of you. Below is exactly what that means.
+    Your files, their names and your searches never leave your PC, and this website keeps no record of you. Below is
+    every request whereti can make, and exactly what it carries.
   </p>
   <p class="updated">Last changed on 25 October 2026.</p>
 
   <h2 id="app">The app</h2>
   <p>
-    None of the programs whereti installs makes a network request: not the search window, not the background service,
-    not the document reader, not the installer. There is no account, no telemetry, no crash reporting and no update
-    check that phones home. To get a new version, you download it from this site or from GitHub yourself.
+    There is no account, no telemetry and no crash reporting. The background service, the document reader and the
+    installer make no network requests at all. The search window makes at most two, both about updates:
   </p>
+  <ul>
+    <li>
+      <strong>The update check, at most once a day.</strong> whereti asks
+      <code>https://releases.whereti.com/windows/x86_64/0.1.0</code> (its own architecture and version) whether a newer
+      version exists. Nothing else is sent: no identifier, no cookie, nothing about your files. The time of each check is
+      saved before it goes out, so restarting the PC or the app never makes a second one that day. The server records one
+      line per check: the platform, the version that asked, and whether an update was offered. No IP address. Its code is
+      public in the <a href="https://github.com/whereti/releases">whereti.releases</a> repository. You can turn the check
+      off in Settings, General; then whereti sends nothing at all.
+    </li>
+    <li>
+      <strong>The update download, only when you choose Install update.</strong> The installer comes from whereti's
+      GitHub releases, so GitHub sees that download like any other. whereti installs it only if it is signed by Software
+      Hive S.R.L. and matches the checksum of the release.
+    </li>
+  </ul>
   <p>What whereti keeps, all on your PC:</p>
   <ul>
     <li>
