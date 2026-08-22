@@ -253,6 +253,7 @@ mark { background: rgba(255, 196, 0, 0.38); color: inherit; border-radius: 3px; 
 .ico.pdf { background: linear-gradient(160deg, #f0605f, #d63a3f); } .ico.doc { background: linear-gradient(160deg, #4a86ef, #2457c5); }
 .ico.xls { background: linear-gradient(160deg, #2fae6b, #18804a); } .ico.eml { background: linear-gradient(160deg, #f0a43a, #d47a10); }
 .ico.ppt { background: linear-gradient(160deg, #f07a45, #cf4f1a); } .ico.txt { background: linear-gradient(160deg, #8b93a7, #646d82); }
+.ico.img { background: linear-gradient(160deg, #a46bf5, #7a3fd6); }
 .ico.dir { background: linear-gradient(160deg, #ffd166, #f0b429); position: relative; }
 .ico.dir::before { content: ""; position: absolute; left: 4px; top: 6px; width: 11px; height: 4px; border-radius: 2px 2px 0 0; background: #e8a512; }
 
