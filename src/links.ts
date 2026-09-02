@@ -25,5 +25,11 @@ export const SECURITY = "security@whereti.com";
 export const COMPANY_EMAIL = "contact@softwarehive.ro";
 export const SILENTSILO = "https://silentsilo.com";
 
+/** Supporter licenses on Lemon Squeezy (merchant of record). false until the
+ *  products and the licenses Worker are live: the page then says "coming soon". */
+export const SUPPORT_OPEN = false;
+export const BUY_PERSONAL = "https://whereti.lemonsqueezy.com/buy/TODO-personal";
+export const BUY_BUSINESS = "https://whereti.lemonsqueezy.com/buy/TODO-business";
+
 /** Where the download button goes. */
 export const DOWNLOAD = RELEASED ? LATEST_INSTALLER : "/download/";
