@@ -1,7 +1,7 @@
 // The sitemap, written by hand like silentsilo.com's: every page, nothing else.
 import { SITE } from "../links";
 
-const PAGES = ["", "download", "faq", "privacy", "security", "supporter", "who", "legal"];
+const PAGES = ["", "download", "search", "faq", "privacy", "security", "supporter", "who", "legal"];
 
 export function GET() {
   const urls = PAGES.map((p) => {

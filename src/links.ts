@@ -18,7 +18,7 @@ export const LATEST_INSTALLER_NAME = `whereti-setup-${LATEST_VERSION}.exe`;
 export const LATEST_INSTALLER = `${REPO}/releases/latest/download/${LATEST_INSTALLER_NAME}`;
 /** From scripts\package.ps1 -Release output; empty until the first release. */
 export const INSTALLER_SHA256 = "";
-export const INSTALLER_SIZE = "30 MB";
+export const INSTALLER_SIZE = "58 MB";
 
 export const CONTACT = "contact@whereti.com";
 export const SECURITY = "security@whereti.com";

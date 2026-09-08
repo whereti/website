@@ -1,0 +1,127 @@
+---
+import Base from "../layouts/Base.astro";
+---
+<Base title="Search tips" description="Everything you can type in whereti: words, quotes, or and not, wildcards, file types, dates and date ranges, sizes, folders, inside documents, photos by place and by what they show, and the keyboard." prose>
+  <h1>Search tips</h1>
+  <p class="lead">
+    Plain words are enough almost always. When you want more, everything below works in the search box, and it can be
+    combined. In whereti, the <strong>?</strong> in the search box (or <kbd>F1</kbd>) shows the same list, and a click on
+    an example tries it.
+  </p>
+
+  <h2 id="words">Words</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Type</th><th>Finds</th></tr></thead>
+      <tbody>
+        <tr><td><code>report 2025</code></td><td>Names with every word, anywhere and in any order. Capitals and accents do not matter: <code>masina</code> finds “Mașină”.</td></tr>
+        <tr><td><code>"annual report"</code></td><td>These words together, exactly as typed.</td></tr>
+        <tr><td><code>invoice | receipt</code></td><td>One or the other.</td></tr>
+        <tr><td><code>report !draft</code></td><td>Leaves out names with the word after <code>!</code>.</td></tr>
+        <tr><td><code>*.pdf</code>, <code>img_????.jpg</code></td><td>The whole name: <code>*</code> stands for any letters, <code>?</code> for exactly one.</td></tr>
+        <tr><td><code>projects\whereti</code></td><td>A backslash searches the path, not only the name.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="filters">Filters</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Type</th><th>Keeps</th></tr></thead>
+      <tbody>
+        <tr><td><code>ext:pdf;docx</code></td><td>Only these file types.</td></tr>
+        <tr>
+          <td><code>dm:today</code></td>
+          <td>
+            Changed on a day or in a period: <code>today</code>, <code>yesterday</code>, <code>thisweek</code>,
+            <code>lastweek</code>, <code>thismonth</code>, <code>lastmonth</code>, <code>thisyear</code>,
+            <code>lastyear</code>, a year <code>2025</code>, a month <code>2025-03</code>, a day <code>2025-03-15</code>
+            (or <code>15.03.2025</code>).
+          </td>
+        </tr>
+        <tr>
+          <td><code>dm:2025-03-01..2025-06-30</code></td>
+          <td>Changed between two dates. Months and years work too: <code>dm:2025-03..2025-06</code>, <code>dm:2023..2024</code>.</td>
+        </tr>
+        <tr><td><code>dm:&gt;2025-06</code></td><td>Changed after (or <code>&lt;</code> before) a date.</td></tr>
+        <tr>
+          <td><code>size:&gt;10mb</code></td>
+          <td>
+            By size: <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, a range
+            <code>1mb..5mb</code>, or a word: <code>empty</code>, <code>tiny</code> (under 10 KB), <code>small</code>
+            (to 100 KB), <code>medium</code> (to 1 MB), <code>large</code> (to 16 MB), <code>huge</code> (to 128 MB),
+            <code>gigantic</code>.
+          </td>
+        </tr>
+        <tr><td><code>folder:projects</code></td><td>Only folders with that name (<code>folder:</code> alone: only folders). <code>file:</code> does the same for files.</td></tr>
+        <tr><td><code>path:C:\Users</code></td><td>Only inside a folder.</td></tr>
+        <tr><td><code>mine:</code></td><td>Only your own files, without programs, system and hidden files.</td></tr>
+        <tr><td><code>regex:^IMG_\d{4}</code></td><td>A regular expression on the name, for experts.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="inside">Inside files and photos</h2>
+  <p>
+    Plain words also look inside documents: results whose text has every word come under the names, with the line where
+    they appear. To search only inside, or only photos:
+  </p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Type</th><th>Finds</th></tr></thead>
+      <tbody>
+        <tr><td><code>content:rent</code></td><td>Only files that have the words inside (PDF, Word, Excel, PowerPoint, e-mails, text, and the text in scans and photos). Other words in the search then filter by name.</td></tr>
+        <tr><td><code>loc:italy</code></td><td>Photos taken in a town, region or country, from the GPS position your phone or camera wrote into them. <code>rome</code>, <code>roma</code> or <code>italia</code> work as plain words too.</td></tr>
+        <tr><td><code>dog</code>, <code>beach</code>, <code>car</code></td><td>Photos that show it, if you turned on “Recognize objects and animals in photos” (see <a href="/faq/#photos">Questions</a>). Any of whereti's 8 languages works: <code>câine</code>, <code>Hund</code>, <code>perro</code>.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="combine">Together</h2>
+  <p>
+    Everything combines: <code>invoice ext:pdf dm:thisyear</code>, <code>loc:greece dm:2025-08</code>,
+    <code>contract !draft path:D:\Company size:&lt;5mb</code>. The tabs above the results (Documents, Images, Audio, Video,
+    Folders) add their own filter on top.
+  </p>
+
+  <h2 id="keys">Keyboard</h2>
+  <div class="table-wrap">
+    <table>
+      <tbody>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Space</kbd></td><td>Opens whereti from any app (you can pick another shortcut in Settings).</td></tr>
+        <tr><td><kbd>↑</kbd> <kbd>↓</kbd>, <kbd>Page Up</kbd> <kbd>Page Down</kbd></td><td>Move through the results.</td></tr>
+        <tr><td><kbd>Enter</kbd></td><td>Opens the file, folder, app or Windows setting.</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Enter</kbd></td><td>Shows the file in its folder, in Explorer.</td></tr>
+        <tr><td><kbd>Tab</kbd></td><td>Shows or hides the preview.</td></tr>
+        <tr><td><kbd>Shift</kbd>+<kbd>F10</kbd></td><td>The usual right-click menu of Explorer.</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd></td><td>Copies the path.</td></tr>
+        <tr><td><kbd>F1</kbd></td><td>The list of search commands.</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>,</kbd></td><td>Settings.</td></tr>
+        <tr><td><kbd>Esc</kbd></td><td>Clears the search; with nothing typed, hides whereti.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2 id="order">What comes first</h2>
+  <p>whereti puts the file you most likely want on top, in this order:</p>
+  <ol>
+    <li><strong>How well the name matches:</strong> the exact name (with or without its extension), then names that start with the word, then a word inside the name, then anywhere.</li>
+    <li>
+      <strong>Then, among names that match as well:</strong> your own folders (Desktop, Documents, Downloads, Pictures…)
+      before program and system folders; documents, photos, music and videos before files programs keep for
+      themselves; recent changes before old ones.
+    </li>
+    <li>
+      <strong>What you open:</strong> files you open often or lately, in whereti or in other apps, move up. A file you
+      opened yesterday can pass one that only starts with the word.
+    </li>
+    <li>
+      <strong>Where you work:</strong> folders in which your own files were created or changed in the last days move up
+      too. Settings, Search shows which folders whereti learnt.
+    </li>
+  </ol>
+  <p>
+    The last two are learnt on your PC and never leave it. Each has a switch in Settings, Search; turning it off forgets
+    what was learnt. The same file in several places shows once, with “+2 copies”.
+  </p>
+</Base>

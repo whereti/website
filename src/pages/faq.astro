@@ -34,10 +34,35 @@ import { CONTACT, REPO } from "../links";
       Downloads (a receipt, an ID card, a whiteboard). They are read with the text recognition built into Windows, on
       your PC.
     </li>
+    <li>
+      <strong>Where photos were taken</strong>, in Pictures and in the folders above, and, if you turn it on,
+      <strong>what they show</strong>. See <a href="#photos">the photos question</a>.
+    </li>
   </ul>
   <p>
     Some folders are skipped on purpose, like Windows' own system folders and temporary files. You can add your own in
     Settings, Search, "Folders whereti skips".
+  </p>
+
+  <h2 id="photos">Can it find photos by place, or by what is in them?</h2>
+  <p>
+    <strong>By place, yes, always.</strong> Phones and many cameras write the GPS position into each photo. whereti reads
+    it and names the town, region and country from a list of 160,000 places built into the app (GeoNames), so nothing is
+    looked up online. Type “brasov”, “turcia” or <code>loc:italy</code>; country names work in all 8 languages.
+  </p>
+  <p>
+    <strong>By what they show, if you want it.</strong> When you first start whereti, it asks whether to recognize objects and animals
+    in photos (a dog, the beach, a car, a concert); the same switch is in Settings, Search. Saying yes downloads a model
+    once, 84 MB, from Hugging Face. From then on photos are read on your PC, slowly and at low priority, pausing while
+    you play or work, and never leave it. Each photo gets up to three labels from about 200, in all 8 languages, so
+    “câine”, “dog” and “Hund” find the same photo.
+  </p>
+
+  <h2 id="order">Which results come first?</h2>
+  <p>
+    The best match of the name first; then, among equal matches, your own folders and kinds of files and recent changes;
+    and what you open often and where you are working these days move up. The last two are learnt on your PC and can be
+    turned off in Settings, Search. The <a href="/search/#order">search tips</a> explain it in detail.
   </p>
 
   <h2 id="apps">Can it open apps and Windows settings too?</h2>
@@ -61,9 +86,11 @@ import { CONTACT, REPO } from "../links";
 
   <h2 id="internet">Does it send anything over the internet?</h2>
   <p>
-    Your files, their names and your searches never leave your PC. The only request whereti makes is the update check:
-    at most once a day it asks releases.whereti.com whether a newer version exists, sending only its own version number.
-    You can turn it off in Settings, General. See the <a href="/privacy/">privacy page</a> for every detail.
+    Your files, their names, your photos and your searches never leave your PC. whereti makes two kinds of request, and
+    sends nothing about you in either: the update check, at most once a day, which asks releases.whereti.com whether a
+    newer version exists and sends only its own version number (you can turn it off in Settings, General); and, only if
+    you turn on recognizing objects and animals in photos, one download of the model from Hugging Face. See the
+    <a href="/privacy/">privacy page</a> for every detail.
   </p>
 
   <h2 id="updates">How do updates work?</h2>
@@ -90,8 +117,13 @@ import { CONTACT, REPO } from "../links";
   <ul>
     <li><code>ext:pdf</code> or <code>ext:pdf;docx</code> for file types</li>
     <li><code>size:&gt;10mb</code> for large files</li>
-    <li><code>dm:today</code>, <code>dm:lastweek</code> for files changed recently</li>
+    <li><code>dm:today</code>, <code>dm:lastweek</code>, or a range <code>dm:2025-03-01..2025-06-30</code> for when a file changed</li>
+    <li><code>loc:italy</code> for photos taken in a place</li>
   </ul>
+  <p>
+    The <strong>?</strong> in whereti's search box (or <kbd>F1</kbd>) lists them all, and a click tries one. The
+    <a href="/search/">search tips</a> page has every command and the keyboard.
+  </p>
 
   <h2 id="languages">Which languages does it speak?</h2>
   <p>

@@ -8,12 +8,13 @@ import { CONTACT, COMPANY_EMAIL } from "../links";
     Your files, their names and your searches never leave your PC, and this website keeps no record of you. Below is
     every request whereti can make, and exactly what it carries.
   </p>
-  <p class="updated">Last changed on 25 October 2026.</p>
+  <p class="updated">Last changed on 25 October 2026: the photo model, what you open and where you work.</p>
 
   <h2 id="app">The app</h2>
   <p>
-    There is no account, no telemetry and no crash reporting. The background service, the document reader and the
-    installer make no network requests at all. The search window makes at most two, both about updates:
+    There is no account, no telemetry and no crash reporting. The document reader and the installer make no network
+    requests at all. The search window makes at most two, both about updates, and the background service at most one,
+    only if you ask for it:
   </p>
   <ul>
     <li>
@@ -30,6 +31,13 @@ import { CONTACT, COMPANY_EMAIL } from "../links";
       GitHub releases, so GitHub sees that download like any other. whereti installs it only if it is signed by Software
       Hive S.R.L. and matches the checksum of the release.
     </li>
+    <li>
+      <strong>The photo model, once, only if you turn on recognizing objects and animals in photos.</strong> The
+      background service downloads CLIP's image model (84 MB) from
+      <code>huggingface.co/Xenova/clip-vit-base-patch32</code>, at a fixed revision, and uses it only if its size and
+      SHA-256 checksum match. Hugging Face sees that download like any other; nothing about you or your photos is sent.
+      The photos are then read on your PC, in the same isolated reader as documents.
+    </li>
   </ul>
   <p>What whereti keeps, all on your PC:</p>
   <ul>
@@ -40,6 +48,20 @@ import { CONTACT, COMPANY_EMAIL } from "../links";
     <li>
       <strong>Your settings</strong> (language, theme, shortcut, folders to skip) in
       <code>%AppData%\whereti\settings.txt</code>.
+    </li>
+    <li>
+      <strong>What you open</strong>, so those files come first: the files you opened from whereti and how often, in
+      <code>%AppData%\whereti\usage.txt</code>. whereti also reads Windows' own list of recent files. “Forget” in
+      Settings, Search clears it; the switch next to it turns it off.
+    </li>
+    <li>
+      <strong>Where you work</strong>, so those folders come first: the folders where your own files were created or
+      changed lately, with a score that halves every week, beside the index. Settings, Search shows them; turning it off
+      forgets them.
+    </li>
+    <li>
+      <strong>Where photos were taken and what they show</strong>, as words in the index. Places are named from a list
+      built into whereti (GeoNames, CC BY 4.0); nothing is looked up online.
     </li>
   </ul>
   <p>
