@@ -10,15 +10,17 @@ import { SECURITY, REPO, INSTALLER_SHA256, LATEST_INSTALLER_NAME } from "../link
   </p>
 
   <h2 id="parts">What gets installed</h2>
-  <table>
-    <thead><tr><th>Part</th><th>Runs as</th><th>What it does</th></tr></thead>
-    <tbody>
-      <tr><td>whereti.exe</td><td>You</td><td>The search window and the icon next to the clock.</td></tr>
-      <tr><td>whereti-service.exe</td><td>Windows service</td><td>Reads the drives' file tables, keeps the index, answers searches from the window.</td></tr>
-      <tr><td>whereti-extract.exe</td><td>A separate process</td><td>Reads the text out of one document at a time, with limits on time and memory.</td></tr>
-      <tr><td>wt.exe</td><td>You</td><td>The same search from a command line, for those who want it.</td></tr>
-    </tbody>
-  </table>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Part</th><th>Runs as</th><th>What it does</th></tr></thead>
+      <tbody>
+        <tr><td>whereti.exe</td><td>You</td><td>The search window and the icon next to the clock.</td></tr>
+        <tr><td>whereti-service.exe</td><td>Windows service</td><td>Reads the drives' file tables, keeps the index, answers searches from the window.</td></tr>
+        <tr><td>whereti-extract.exe</td><td>A separate process</td><td>Reads the text out of one document at a time, with limits on time and memory.</td></tr>
+        <tr><td>wt.exe</td><td>You</td><td>The same search from a command line, for those who want it.</td></tr>
+      </tbody>
+    </table>
+  </div>
   <p>
     Everything goes to <code>C:\Program Files\whereti</code>. The service talks to the window only through a local pipe
     on the same PC.

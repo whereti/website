@@ -6,147 +6,219 @@ import { CONTACT, REPO } from "../links";
   <h1>Questions</h1>
   <p class="lead">Short answers. If yours is not here, write to <a href={`mailto:${CONTACT}`}>{CONTACT}</a>.</p>
 
-  <h2 id="free">Is it really free?</h2>
-  <p>
-    Yes, all of it, for home and for work. A <a href="/supporter/">supporter license</a> is coming for those who want to
-    help pay for the work. It will not unlock anything that is locked today, because nothing is.
-  </p>
+  <h2 id="basics">The basics</h2>
+  <details class="qa" id="free">
+    <summary>Is it really free?</summary>
+    <div class="a">
+    <p>
+        Yes, all of it, for home and for work. A <a href="/supporter/">supporter license</a> is there for those who want to
+        help pay for the work. It does not unlock anything, because nothing is locked.
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="windows-search">
+    <summary>How is it different from Windows search?</summary>
+    <div class="a">
+    <p>
+        whereti reads the file table of each drive directly, the way Windows itself keeps track of files. That is why it
+        finds every file by name in milliseconds, on every drive, not only in a few indexed folders. It also searches inside
+        documents and shows the line where your words appear.
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="what">
+    <summary>What does it search?</summary>
+    <div class="a">
+    <ul>
+        <li>
+          <strong>Names</strong> of all files and folders on your drives: internal and external disks, USB sticks and memory
+          cards. A stick shows up in the results a few seconds after you plug it in, and leaves when you take it out.
+        </li>
+        <li>
+          <strong>Contents</strong> of PDF, Word, Excel, PowerPoint, OpenDocument, RTF and HTML files, e-mails saved as .eml or
+          .msg, and text files in Documents, Desktop and Downloads.
+        </li>
+        <li>
+          <strong>Text in scans and pictures:</strong> scanned PDFs, and photos or screenshots in Documents, Desktop and
+          Downloads (a receipt, an ID card, a whiteboard). They are read with the text recognition built into Windows, on
+          your PC.
+        </li>
+        <li>
+          <strong>Where photos were taken</strong>, in Pictures and in the folders above, and, if you turn it on,
+          <strong>what they show</strong>. See <a href="#photos">the photos question</a>.
+        </li>
+      </ul>
+      <p>
+        Some folders are skipped on purpose, like Windows' own system folders and temporary files. You can add your own in
+        Settings, Search, "Folders whereti skips".
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="languages">
+    <summary>Which languages does it speak?</summary>
+    <div class="a">
+    <p>
+        English, Deutsch, Español, Français, Italiano, Polski, Português (Brasil) and Română. It follows the language of
+        Windows; you can pick another in Settings. Languages marked beta have not yet been read by a native speaker; corrections
+        are welcome.
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="source">
+    <summary>Can I see the code?</summary>
+    <div class="a">
+    <p>Yes, all of it is on <a href={REPO}>GitHub</a>, under the MIT license.</p>
+    </div>
+  </details>
 
-  <h2 id="windows-search">How is it different from Windows search?</h2>
-  <p>
-    whereti reads the file table of each drive directly, the way Windows itself keeps track of files. That is why it
-    finds every file by name in milliseconds, on every drive, not only in a few indexed folders. It also searches inside
-    documents and shows the line where your words appear.
-  </p>
+  <h2 id="searching">Searching</h2>
+  <details class="qa" id="photos">
+    <summary>Can it find photos by place, or by what is in them?</summary>
+    <div class="a">
+    <p>
+        <strong>By place, yes, always.</strong> Phones and many cameras write the GPS position into each photo. whereti reads
+        it and names the town, region and country from a list of 160,000 places built into the app (GeoNames), so nothing is
+        looked up online. Type “brasov”, “turcia” or <code>loc:italy</code>; country names work in all 8 languages.
+      </p>
+      <p>
+        <strong>By what they show, if you want it.</strong> When you first start whereti, it asks whether to recognize objects and animals
+        in photos (a dog, the beach, a car, a concert); the same switch is in Settings, Search. Saying yes downloads a model
+        once, 84 MB, from Hugging Face. From then on photos are read on your PC, slowly and at low priority, pausing while
+        you play or work, and never leave it. Each photo gets up to three labels from about 200, in all 8 languages, so
+        “câine”, “dog” and “Hund” find the same photo.
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="order">
+    <summary>Which results come first?</summary>
+    <div class="a">
+    <p>
+        The best match of the name first; then, among equal matches, your own folders and kinds of files and recent changes;
+        and what you open often and where you are working these days move up. The last two are learnt on your PC and can be
+        turned off in Settings, Search. The <a href="/search/#order">search tips</a> explain it in detail.
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="apps">
+    <summary>Can it open apps and Windows settings too?</summary>
+    <div class="a">
+    <p>
+        Yes. Type "printer", "wifi" or "uninstall" and the right page of Windows Settings or Control Panel comes first; type
+        the name of an app and it is there too. Enter opens it. They appear above the files, a few at most, and only when
+        they match well.
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="shortcut">
+    <summary>How do I open it? Can I change the shortcut?</summary>
+    <div class="a">
+    <p>
+        Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Space</kbd> from any app, or click the whereti icon next to the clock. In
+        Settings, General, choose Change and press the keys you want, or pick one of the suggestions.
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="filters">
+    <summary>Are there search tricks?</summary>
+    <div class="a">
+    <p>Plain words are enough. If you like, you can add filters:</p>
+      <ul>
+        <li><code>ext:pdf</code> or <code>ext:pdf;docx</code> for file types</li>
+        <li><code>size:&gt;10mb</code> for large files</li>
+        <li><code>dm:today</code>, <code>dm:lastweek</code>, or a range <code>dm:2025-03-01..2025-06-30</code> for when a file changed</li>
+        <li><code>loc:italy</code> for photos taken in a place</li>
+      </ul>
+      <p>
+        The <strong>?</strong> in whereti's search box (or <kbd>F1</kbd>) lists them all, and a click tries one. The
+        <a href="/search/">search tips</a> page has every command and the keyboard.
+      </p>
+    </div>
+  </details>
 
-  <h2 id="what">What does it search?</h2>
-  <ul>
-    <li>
-      <strong>Names</strong> of all files and folders on your drives: internal and external disks, USB sticks and memory
-      cards. A stick shows up in the results a few seconds after you plug it in, and leaves when you take it out.
-    </li>
-    <li>
-      <strong>Contents</strong> of PDF, Word, Excel, PowerPoint, OpenDocument, RTF and HTML files, e-mails saved as .eml or
-      .msg, and text files in Documents, Desktop and Downloads.
-    </li>
-    <li>
-      <strong>Text in scans and pictures:</strong> scanned PDFs, and photos or screenshots in Documents, Desktop and
-      Downloads (a receipt, an ID card, a whiteboard). They are read with the text recognition built into Windows, on
-      your PC.
-    </li>
-    <li>
-      <strong>Where photos were taken</strong>, in Pictures and in the folders above, and, if you turn it on,
-      <strong>what they show</strong>. See <a href="#photos">the photos question</a>.
-    </li>
-  </ul>
-  <p>
-    Some folders are skipped on purpose, like Windows' own system folders and temporary files. You can add your own in
-    Settings, Search, "Folders whereti skips".
-  </p>
+  <h2 id="your-pc">On your PC</h2>
+  <details class="qa" id="usb">
+    <summary>Can I still remove a USB stick safely?</summary>
+    <div class="a">
+    <p>
+        Yes. whereti keeps nothing open on USB sticks and memory cards: it reads them now and then and lets go, so Windows can
+        eject them at any time.
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="slow">
+    <summary>Will it slow down my PC?</summary>
+    <div class="a">
+    <p>
+        No. Names are read once, in seconds. Documents are read in the background at low priority, and reading pauses while
+        you play a game, give a presentation, run on battery or the PC is busy. After that, whereti only follows changes as they happen.
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="admin">
+    <summary>Why does it need administrator permission?</summary>
+    <div class="a">
+    <p>
+        To read a drive's file table and its change journal, Windows asks for administrator rights. whereti installs a small
+        background service for that, once. The search window itself runs as you, without special rights.
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="updates">
+    <summary>How do updates work?</summary>
+    <div class="a">
+    <p>
+        When a new version exists, whereti says so at the bottom of its window and in Settings, About. Nothing is downloaded
+        until you choose Install update. whereti then fetches the installer from its GitHub releases, checks that it is signed
+        by Software Hive S.R.L. and has not been changed, and installs it after Windows asks for your permission.
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="remove">
+    <summary>How do I remove it?</summary>
+    <div class="a">
+    <p>
+        In Windows, open Settings, Apps, find whereti and choose Uninstall. Everything goes: the programs, the background
+        service, the index and the settings.
+      </p>
+    </div>
+  </details>
 
-  <h2 id="photos">Can it find photos by place, or by what is in them?</h2>
-  <p>
-    <strong>By place, yes, always.</strong> Phones and many cameras write the GPS position into each photo. whereti reads
-    it and names the town, region and country from a list of 160,000 places built into the app (GeoNames), so nothing is
-    looked up online. Type “brasov”, “turcia” or <code>loc:italy</code>; country names work in all 8 languages.
-  </p>
-  <p>
-    <strong>By what they show, if you want it.</strong> When you first start whereti, it asks whether to recognize objects and animals
-    in photos (a dog, the beach, a car, a concert); the same switch is in Settings, Search. Saying yes downloads a model
-    once, 84 MB, from Hugging Face. From then on photos are read on your PC, slowly and at low priority, pausing while
-    you play or work, and never leave it. Each photo gets up to three labels from about 200, in all 8 languages, so
-    “câine”, “dog” and “Hund” find the same photo.
-  </p>
-
-  <h2 id="order">Which results come first?</h2>
-  <p>
-    The best match of the name first; then, among equal matches, your own folders and kinds of files and recent changes;
-    and what you open often and where you are working these days move up. The last two are learnt on your PC and can be
-    turned off in Settings, Search. The <a href="/search/#order">search tips</a> explain it in detail.
-  </p>
-
-  <h2 id="apps">Can it open apps and Windows settings too?</h2>
-  <p>
-    Yes. Type "printer", "wifi" or "uninstall" and the right page of Windows Settings or Control Panel comes first; type
-    the name of an app and it is there too. Enter opens it. They appear above the files, a few at most, and only when
-    they match well.
-  </p>
-
-  <h2 id="usb">Can I still remove a USB stick safely?</h2>
-  <p>
-    Yes. whereti keeps nothing open on USB sticks and memory cards: it reads them now and then and lets go, so Windows can
-    eject them at any time.
-  </p>
-
-  <h2 id="slow">Will it slow down my PC?</h2>
-  <p>
-    No. Names are read once, in seconds. Documents are read in the background at low priority, and reading pauses while
-    you play a game, give a presentation, run on battery or the PC is busy. After that, whereti only follows changes as they happen.
-  </p>
-
-  <h2 id="internet">Does it send anything over the internet?</h2>
-  <p>
-    Your files, their names, your photos and your searches never leave your PC. whereti makes two kinds of request, and
-    sends nothing about you in either: the update check, at most once a day, which asks releases.whereti.com whether a
-    newer version exists and sends only its own version number (you can turn it off in Settings, General); and, only if
-    you turn on recognizing objects and animals in photos, one download of the model from Hugging Face. See the
-    <a href="/privacy/">privacy page</a> for every detail.
-  </p>
-
-  <h2 id="updates">How do updates work?</h2>
-  <p>
-    When a new version exists, whereti says so at the bottom of its window and in Settings, About. Nothing is downloaded
-    until you choose Install update. whereti then fetches the installer from its GitHub releases, checks that it is signed
-    by Software Hive S.R.L. and has not been changed, and installs it after Windows asks for your permission.
-  </p>
-
-  <h2 id="admin">Why does it need administrator permission?</h2>
-  <p>
-    To read a drive's file table and its change journal, Windows asks for administrator rights. whereti installs a small
-    background service for that, once. The search window itself runs as you, without special rights.
-  </p>
-
-  <h2 id="shortcut">How do I open it? Can I change the shortcut?</h2>
-  <p>
-    Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Space</kbd> from any app, or click the whereti icon next to the clock. In
-    Settings, General, choose Change and press the keys you want, or pick one of the suggestions.
-  </p>
-
-  <h2 id="filters">Are there search tricks?</h2>
-  <p>Plain words are enough. If you like, you can add filters:</p>
-  <ul>
-    <li><code>ext:pdf</code> or <code>ext:pdf;docx</code> for file types</li>
-    <li><code>size:&gt;10mb</code> for large files</li>
-    <li><code>dm:today</code>, <code>dm:lastweek</code>, or a range <code>dm:2025-03-01..2025-06-30</code> for when a file changed</li>
-    <li><code>loc:italy</code> for photos taken in a place</li>
-  </ul>
-  <p>
-    The <strong>?</strong> in whereti's search box (or <kbd>F1</kbd>) lists them all, and a click tries one. The
-    <a href="/search/">search tips</a> page has every command and the keyboard.
-  </p>
-
-  <h2 id="languages">Which languages does it speak?</h2>
-  <p>
-    English, Deutsch, Español, Français, Italiano, Polski, Português (Brasil) and Română. It follows the language of
-    Windows; you can pick another in Settings. Languages marked beta have not yet been read by a native speaker; corrections
-    are welcome.
-  </p>
-
-  <h2 id="real">How do I know the download is the real one?</h2>
-  <p>
-    The installer is signed by Software Hive S.R.L. Windows shows the publisher when you run it. The
-    <a href="/security/#checking-the-download">security page</a> shows how to check it yourself.
-  </p>
-
-  <h2 id="remove">How do I remove it?</h2>
-  <p>
-    In Windows, open Settings, Apps, find whereti and choose Uninstall. Everything goes: the programs, the background
-    service, the index and the settings.
-  </p>
-
-  <h2 id="source">Can I see the code?</h2>
-  <p>Yes, all of it is on <a href={REPO}>GitHub</a>, under the MIT license.</p>
+  <h2 id="trust">Privacy and trust</h2>
+  <details class="qa" id="internet">
+    <summary>Does it send anything over the internet?</summary>
+    <div class="a">
+    <p>
+        Your files, their names, your photos and your searches never leave your PC. whereti makes two kinds of request, and
+        sends nothing about you in either: the update check, at most once a day, which asks releases.whereti.com whether a
+        newer version exists and sends only its own version number (you can turn it off in Settings, General); and, only if
+        you turn on recognizing objects and animals in photos, one download of the model from Hugging Face. See the
+        <a href="/privacy/">privacy page</a> for every detail.
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="real">
+    <summary>How do I know the download is the real one?</summary>
+    <div class="a">
+    <p>
+        The installer is signed by Software Hive S.R.L. Windows shows the publisher when you run it. The
+        <a href="/security/#checking-the-download">security page</a> shows how to check it yourself.
+      </p>
+    </div>
+  </details>
 
   <h2 id="else">Something else</h2>
   <p>Write to <a href={`mailto:${CONTACT}`}>{CONTACT}</a>. A person reads every message.</p>
+
+  <script>
+    // A link to one question (/faq/#photos) opens it.
+    const openFromHash = () => {
+      const el = location.hash ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : null;
+      if (el instanceof HTMLDetailsElement) {
+        el.open = true;
+        el.scrollIntoView();
+      }
+    };
+    addEventListener("hashchange", openFromHash);
+    openFromHash();
+  </script>
 </Base>

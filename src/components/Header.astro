@@ -1,10 +1,10 @@
 ---
 import Icon from "./Icon.astro";
-import { REPO, DOWNLOAD, RELEASED, CONTACT } from "../links";
+import { REPO, DOWNLOAD, CONTACT } from "../links";
 
 const nav = [
   { href: "/#features", label: "Features" },
-  { href: "/download/", label: "Download" },
+  { href: "/#download", label: "Download" },
   { href: "/search/", label: "Search tips" },
   { href: "/faq/", label: "Questions" },
   { href: "/privacy/", label: "Privacy" },
@@ -27,8 +27,8 @@ const path = Astro.url.pathname;
         <Icon name="moon" class="moon" />
       </button>
       <a class="icon-btn" href={REPO} aria-label="Source on GitHub" title="Source on GitHub"><Icon name="github" /></a>
-      <a class="btn btn-primary btn-sm header-dl" href={DOWNLOAD}>
-        <Icon name="download" />{RELEASED ? "Download" : "Get it"}
+      <a class="btn btn-primary btn-sm header-dl" href={DOWNLOAD} data-windows-only>
+        <Icon name="download" />Download
       </a>
       <button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
         <Icon name="menu" />
@@ -47,6 +47,12 @@ const path = Astro.url.pathname;
 </header>
 
 <script>
+  // whereti is for Windows only: elsewhere, download buttons lead to the
+  // download section instead of an .exe.
+  if (!/Windows/i.test(navigator.userAgent)) {
+    document.querySelectorAll<HTMLAnchorElement>("a[data-windows-only]").forEach((a) => (a.href = "/#download"));
+  }
+
   const header = document.querySelector<HTMLElement>(".site-header")!;
   const onScroll = () => header.toggleAttribute("data-scrolled", window.scrollY > 4);
   addEventListener("scroll", onScroll, { passive: true });

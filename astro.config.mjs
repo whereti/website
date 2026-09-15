@@ -10,4 +10,7 @@ export default defineConfig({
   build: { format: "directory" },
   // No dev toolbar: the site loads nothing that is not its own.
   devToolbar: { enabled: false },
+  // Compression drops the space between a line of text and a link that
+  // starts the next line ("See the<a>"), so pages keep their whitespace.
+  compressHTML: false,
 });

@@ -3,7 +3,10 @@ import Base from "../layouts/Base.astro";
 import AppWindow from "../components/AppWindow.astro";
 import DownloadButton from "../components/DownloadButton.astro";
 import Icon from "../components/Icon.astro";
-import { REPO, LATEST_VERSION, INSTALLER_SIZE, RELEASED } from "../links";
+import {
+  REPO, LATEST_VERSION, INSTALLER_SIZE, LATEST_INSTALLER, LATEST_INSTALLER_NAME, INSTALLER_SHA256,
+  RELEASE_NOTES, ALL_RELEASES,
+} from "../links";
 ---
 <Base description="whereti finds any file on your Windows PC as you type, by its name or by the words inside it. Free, open source, and your files never leave your computer.">
   <section class="hero2">
@@ -23,7 +26,7 @@ import { REPO, LATEST_VERSION, INSTALLER_SIZE, RELEASED } from "../links";
         <ul class="ticks">
           <li><Icon name="check" />No account</li>
           <li><Icon name="check" />No tracking</li>
-          <li><Icon name="check" />{RELEASED ? `v${LATEST_VERSION} · ${INSTALLER_SIZE}` : "Coming soon"}</li>
+          <li><Icon name="check" />v{LATEST_VERSION} · {INSTALLER_SIZE}</li>
         </ul>
       </div>
       <div class="hero2-shot"><AppWindow /></div>
@@ -134,27 +137,83 @@ import { REPO, LATEST_VERSION, INSTALLER_SIZE, RELEASED } from "../links";
     </div>
   </section>
 
-  <section class="trust">
-    <div class="wrap trust-card">
-      <div>
+  <section class="sec dl-sec" id="download">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="kicker">Download</span>
+        <h2>Get <span class="grad">whereti</span></h2>
+        <p>One installer, free, signed by Software Hive S.R.L.</p>
+      </div>
+
+      <div class="dl-card">
+        <img src="/icon.svg" alt="" width="56" height="56" />
+        <div>
+          <h3>whereti for Windows</h3>
+          <div class="meta">
+            Version {LATEST_VERSION} · Windows 10 and 11, 64-bit · {INSTALLER_SIZE} · free, MIT license ·
+            <a href={RELEASE_NOTES}>Release notes</a>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn btn-primary" href={LATEST_INSTALLER}><Icon name="download" />Download</a>
+        </div>
+      </div>
+
+      <div class="dl-more">
+        <div class="card">
+          <h3>Install in three steps</h3>
+          <ol class="steps">
+            <li><b>Run the installer</b><span>Open {LATEST_INSTALLER_NAME} and choose Install. Windows asks once for administrator permission.</span></li>
+            <li><b>Wait a moment</b><span>whereti opens with a short welcome page while it learns your file names. You can search already.</span></li>
+            <li><b>Press Ctrl+Shift+Space</b><span>From any app. whereti waits next to the clock and starts with Windows; both can be changed in Settings.</span></li>
+          </ol>
+        </div>
+        <div class="card" id="verify">
+          <h3><Icon name="shield" />Check the installer</h3>
+          <p>
+            The installer and every program in it are signed by <strong>Software Hive S.R.L.</strong> Right-click the
+            file, choose Properties, then Digital Signatures, to see it.
+          </p>
+          {INSTALLER_SHA256 && (
+            <p>SHA-256 of {LATEST_INSTALLER_NAME}:<span class="hash">{INSTALLER_SHA256}</span></p>
+          )}
+          <p><a href="/security/#checking-the-download">How to check it</a></p>
+        </div>
+        <div class="card">
+          <h3><Icon name="bolt" />Update or remove</h3>
+          <p>
+            whereti tells you when a new version exists and installs it when you choose Install update. A new installer
+            run by hand replaces the old version and keeps your settings.
+          </p>
+          <p>
+            To remove it, use Settings, Apps in Windows. That removes the programs, the service, the index and the
+            settings.
+          </p>
+        </div>
+      </div>
+
+      <p class="dl-foot">
+        Not on Windows? whereti reads the file system of Windows drives directly, so it runs only on Windows.
+        <a href={ALL_RELEASES}>All releases</a> · <a href={REPO}>Source on GitHub, MIT license</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap end-grid">
+      <div class="trust-card">
         <span class="kicker">Open source · MIT</span>
         <h2>Check it rather than trust it</h2>
         <p>
           All of whereti is on GitHub: the app, the background service, the document reader and the installer. Every
           download is signed by Software Hive S.R.L.
         </p>
+        <div class="trust-actions">
+          <a class="btn btn-ghost" href={REPO}><Icon name="github" />Source on GitHub</a>
+          <a class="btn btn-ghost" href="/security/"><Icon name="shield" />How it stays safe</a>
+        </div>
       </div>
-      <div class="trust-actions">
-        <a class="btn btn-ghost" href={REPO}><Icon name="github" />Source on GitHub</a>
-        <a class="btn btn-ghost" href="/security/"><Icon name="shield" />How it stays safe</a>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta2">
-    <div class="wrap">
       <div class="cta2-card">
-        <img src="/icon.svg" alt="" width="72" height="72" />
         <h2>Stop looking for files.</h2>
         <p>Install whereti, press Ctrl+Shift+Space, type the first word that comes to mind.</p>
         <DownloadButton />

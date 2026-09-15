@@ -1,19 +1,10 @@
 ---
-// The main button. whereti is for Windows only: on other systems the
-// button leads to the download page, which says so, instead of handing a
-// Mac or a phone an .exe.
+// The main button: the installer itself. whereti is for Windows only: on
+// other systems the header's script sends the button to the download
+// section, which says so, instead of handing a Mac or a phone an .exe.
 import Icon from "./Icon.astro";
-import { DOWNLOAD, RELEASED } from "../links";
+import { DOWNLOAD } from "../links";
 ---
-<a class="btn btn-primary dl-btn" href={DOWNLOAD} data-windows-only={RELEASED ? "" : undefined}>
-  <Icon name="windows" />{RELEASED ? "Download for Windows" : "Get whereti"}
+<a class="btn btn-primary dl-btn" href={DOWNLOAD} data-windows-only>
+  <Icon name="windows" />Download for Windows
 </a>
-
-<script>
-  const notWindows = !/Windows/i.test(navigator.userAgent);
-  if (notWindows) {
-    document.querySelectorAll<HTMLAnchorElement>("a.dl-btn[data-windows-only]").forEach((a) => {
-      a.href = "/download/";
-    });
-  }
-</script>

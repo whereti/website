@@ -1,17 +1,17 @@
 ---
-import { REPO, CONTACT, SECURITY, DOWNLOAD, RELEASED, RELEASE_NOTES, SILENTSILO } from "../links";
+import { REPO, CONTACT, SECURITY, DOWNLOAD_INFO, RELEASE_NOTES, SILENTSILO } from "../links";
 ---
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a class="brand" href="/"><img src="/icon.svg" alt="" width="28" height="28" />whereti</a>
+        <a class="brand" href="/"><img src="/icon.svg" alt="" width="26" height="26" />whereti</a>
         <p>Find any file on your PC as you type: by its name or by the words inside it. Free and open source.</p>
       </div>
       <div>
         <h4>Use it</h4>
         <ul>
-          <li><a href={DOWNLOAD}>{RELEASED ? "Download" : "Get it"}</a></li>
+          <li><a href={DOWNLOAD_INFO}>Download</a></li>
           <li><a href="/#features">Features</a></li>
           <li><a href="/faq/">Questions</a></li>
           <li><a href={RELEASE_NOTES}>Release notes</a></li>

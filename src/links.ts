@@ -6,10 +6,6 @@
 export const SITE = "https://whereti.com";
 export const REPO = "https://github.com/whereti/whereti";
 
-/** false until the first release is on GitHub: the site then says "coming
- *  soon" and points to the source instead of a download that would 404. */
-export const RELEASED = false;
-
 export const LATEST_VERSION = "0.0.1";
 export const LATEST_TAG = `v${LATEST_VERSION}`;
 export const RELEASE_NOTES = `${REPO}/releases/latest`;
@@ -25,11 +21,12 @@ export const SECURITY = "security@whereti.com";
 export const COMPANY_EMAIL = "contact@softwarehive.ro";
 export const SILENTSILO = "https://silentsilo.com";
 
-/** Supporter licenses on Lemon Squeezy (merchant of record). false until the
- *  products and the licenses Worker are live: the page then says "coming soon". */
-export const SUPPORT_OPEN = false;
+/** Supporter licenses on Lemon Squeezy (merchant of record). Fill in the two
+ *  product links before the site goes live. */
 export const BUY_PERSONAL = "https://whereti.lemonsqueezy.com/buy/TODO-personal";
 export const BUY_BUSINESS = "https://whereti.lemonsqueezy.com/buy/TODO-business";
 
-/** Where the download button goes. */
-export const DOWNLOAD = RELEASED ? LATEST_INSTALLER : "/download/";
+/** Where the download button goes: the installer itself. */
+export const DOWNLOAD = LATEST_INSTALLER;
+/** The download section on the home page (install steps, checking, removal). */
+export const DOWNLOAD_INFO = "/#download";

@@ -7,14 +7,14 @@ import { CONTACT, SECURITY, COMPANY_EMAIL } from "../links";
   <p class="lead">whereti and this website are published by the company below.</p>
 
   <h2>Publisher</h2>
-  <ul>
-    <li><strong>Company:</strong> SOFTWARE HIVE S.R.L.</li>
-    <li><strong>Registered office:</strong> Str. Zorilor 23, Sat Voicești, 247745, Județul Vâlcea, Romania</li>
-    <li><strong>Trade Register number:</strong> J2026020677006</li>
-    <li><strong>EUID:</strong> ROONRC.J2026020677006</li>
-    <li><strong>VAT and tax identification code (CUI):</strong> RO54366095</li>
-    <li><strong>Email:</strong> <a href={`mailto:${COMPANY_EMAIL}`}>{COMPANY_EMAIL}</a></li>
-  </ul>
+  <dl class="facts">
+    <div><dt>Company</dt><dd>SOFTWARE HIVE S.R.L.</dd></div>
+    <div><dt>Registered office</dt><dd>Str. Zorilor 23, Sat Voicești, 247745, Județul Vâlcea, Romania</dd></div>
+    <div><dt>Trade Register number</dt><dd>J2026020677006</dd></div>
+    <div><dt>EUID</dt><dd>ROONRC.J2026020677006</dd></div>
+    <div><dt>VAT and tax identification code (CUI)</dt><dd>RO54366095</dd></div>
+    <div><dt>Email</dt><dd><a href={`mailto:${COMPANY_EMAIL}`}>{COMPANY_EMAIL}</a></dd></div>
+  </dl>
 
   <h2>Contact</h2>
   <p>
