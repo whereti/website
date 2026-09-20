@@ -295,7 +295,7 @@ mark { background: rgba(255, 196, 0, 0.38); color: inherit; border-radius: 3px; 
 @media (min-width: 1000px) {
   .bento { grid-template-columns: repeat(4, 1fr); grid-auto-rows: minmax(140px, auto); }
   .t-docs { grid-column: span 2; grid-row: span 2; }
-  .t-keys, .t-photos, .t-learns { grid-column: span 2; }
+  .t-keys, .t-photos, .t-learns, .t-wide { grid-column: span 2; }
 }
 .tile {
   position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 5px;
@@ -308,6 +308,7 @@ mark { background: rgba(255, 196, 0, 0.38); color: inherit; border-radius: 3px; 
 .tile a { font-size: 13.5px; font-weight: 560; margin-top: auto; padding-top: 6px; }
 .big-ic { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); margin-bottom: 6px; }
 .big-ic svg { width: 21px; height: 21px; }
+.tile code.inl { font-size: 0.9em; padding: 0.05em 0.35em; border-radius: 5px; background: var(--surface-2); color: var(--text); }
 
 .t-docs { background: radial-gradient(120% 90% at 100% 100%, color-mix(in srgb, #4a4bf0 13%, transparent), transparent 60%), var(--surface); }
 .t-docs h3 { font-size: 1.35rem; letter-spacing: -0.03em; }
@@ -441,7 +442,7 @@ mark { background: rgba(255, 196, 0, 0.38); color: inherit; border-radius: 3px; 
 .prose li { margin: 0.3em 0; padding-left: 0.15em; }
 .prose li::marker { color: var(--dim); }
 .prose ol > li::marker { font-weight: 600; }
-.prose code { background: var(--surface-2); border: 1px solid var(--border); padding: 0.05em 0.35em; border-radius: 5px; }
+.prose code { background: var(--surface-2); border: 1px solid var(--border); padding: 0.05em 0.35em; border-radius: 5px; overflow-wrap: anywhere; }
 .prose .updated { color: var(--dim); font-size: 13px; display: inline-flex; padding: 3px 10px; border-radius: 999px; background: var(--surface-2); }
 .prose table { width: 100%; border-collapse: collapse; font-size: 14px; }
 .prose th, .prose td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }

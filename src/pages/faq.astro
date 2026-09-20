@@ -47,6 +47,13 @@ import { CONTACT, REPO } from "../links";
           <strong>Where photos were taken</strong>, in Pictures and in the folders above, and, if you turn it on,
           <strong>what they show</strong>. See <a href="#photos">the photos question</a>.
         </li>
+        <li>
+          <strong>Archives:</strong> ZIP, 7z and RAR files by the names of the files inside, and ZIP and 7z also by the
+          text of the documents inside. See <a href="#zip">the archives question</a>.
+        </li>
+        <li>
+          <strong>Network folders</strong> you add, by name. See <a href="#network">the network question</a>.
+        </li>
       </ul>
       <p>
         Some folders are skipped on purpose, like Windows' own system folders and temporary files. You can add your own in
@@ -99,6 +106,27 @@ import { CONTACT, REPO } from "../links";
       </p>
     </div>
   </details>
+  <details class="qa" id="zip">
+    <summary>Does it search inside ZIP files?</summary>
+    <div class="a">
+      <p>
+        Yes. A ZIP, 7z or RAR file is found by the names of the files it holds, so “invoice” finds the archive with an
+        invoice inside. ZIP and 7z files are also found by the text of the documents inside them; a very large ZIP only
+        by its list of names.
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="duplicates">
+    <summary>Can it find duplicate files?</summary>
+    <div class="a">
+      <p>
+        Yes: type <code>dupe:</code>. whereti lists files that are identical across your disks, compared by their content,
+        not only by size, and shows first the sets that would free the most space. Narrow it with any filter, like
+        <code>dupe: size:&gt;100mb</code> or <code>dupe: ext:jpg</code>. Files that live only in the cloud are never read
+        for it, and files over 1 GB are compared by 64 samples.
+      </p>
+    </div>
+  </details>
   <details class="qa" id="apps">
     <summary>Can it open apps and Windows settings too?</summary>
     <div class="a">
@@ -127,6 +155,10 @@ import { CONTACT, REPO } from "../links";
         <li><code>size:&gt;10mb</code> for large files</li>
         <li><code>dm:today</code>, <code>dm:lastweek</code>, or a range <code>dm:2025-03-01..2025-06-30</code> for when a file changed</li>
         <li><code>loc:italy</code> for photos taken in a place</li>
+        <li><code>taken:2025-08</code>, <code>camera:iphone</code>, <code>width:&gt;4000</code> for photos</li>
+        <li><code>artist:queen</code>, <code>album:...</code>, <code>duration:&gt;5m</code> for music and videos</li>
+        <li><code>author:popescu</code> for Office and OpenDocument files</li>
+        <li><code>dupe:</code> for identical files</li>
       </ul>
       <p>
         The <strong>?</strong> in whereti's search box (or <kbd>F1</kbd>) lists them all, and a click tries one. The
@@ -136,6 +168,37 @@ import { CONTACT, REPO } from "../links";
   </details>
 
   <h2 id="your-pc">On your PC</h2>
+  <details class="qa" id="open-save">
+    <summary>Does it work in an app's Open or Save window?</summary>
+    <div class="a">
+      <p>
+        Yes. With an Open or Save window in front, press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Space</kbd>. A banner says
+        that <kbd>Enter</kbd> will take that window to the folder of the result. whereti only fills in the window's
+        address bar; it never presses Open or Save for you.
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="files">
+    <summary>Can I rename, delete or copy files from whereti?</summary>
+    <div class="a">
+      <p>
+        Yes, on the selected result: <kbd>F2</kbd> renames it, in a box like Explorer's; <kbd>Delete</kbd> moves it to the
+        Recycle Bin; <kbd>Ctrl</kbd>+<kbd>C</kbd> copies the file itself, to paste into a folder, an e-mail or a chat;
+        <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> copies its path.
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="network">
+    <summary>Does it search my NAS or network folders?</summary>
+    <div class="a">
+      <p>
+        Yes, by name. In Settings, Search, “Network folders”, add a folder like <code>{"\\\\nas\\photos"}</code> or a mapped
+        drive like <code>Z:\</code>. whereti looks through it once an hour, as you (the background service cannot see
+        mapped drives), and its files show up under “On the network”. Only names are searched there, not the text
+        inside.
+      </p>
+    </div>
+  </details>
   <details class="qa" id="usb">
     <summary>Can I still remove a USB stick safely?</summary>
     <div class="a">
@@ -193,6 +256,16 @@ import { CONTACT, REPO } from "../links";
         newer version exists and sends only its own version number (you can turn it off in Settings, General); and, only if
         you turn on recognizing objects and animals in photos, one download of the model from Hugging Face. See the
         <a href="/privacy/">privacy page</a> for every detail.
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="history">
+    <summary>Does it remember what I search?</summary>
+    <div class="a">
+      <p>
+        Only on your PC, and only if you want. With the search box empty, <kbd>↑</kbd> brings back past searches, and
+        they show as buttons on the empty page; the × on one forgets it. Settings, Search, “Remember your searches”
+        turns this off, and Forget clears the list. It is never sent anywhere.
       </p>
     </div>
   </details>

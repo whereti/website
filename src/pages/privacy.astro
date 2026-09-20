@@ -8,7 +8,7 @@ import { CONTACT, COMPANY_EMAIL } from "../links";
     Your files, their names and your searches never leave your PC, and this website keeps no record of you. Below is
     every request whereti can make, and exactly what it carries.
   </p>
-  <p class="updated">Last changed on 25 October 2026: the photo model, what you open and where you work.</p>
+  <p class="updated">Last changed on 26 October 2026: past searches and network folders.</p>
 
   <h2 id="app">The app</h2>
   <p>
@@ -39,6 +39,11 @@ import { CONTACT, COMPANY_EMAIL } from "../links";
       The photos are then read on your PC, in the same isolated reader as documents.
     </li>
   </ul>
+  <p>
+    <strong>Network folders.</strong> If you add a network folder or a mapped drive in Settings, Search, the search window
+    reads its file names once an hour, as you, straight from that NAS or server. That stays between your PC and your own
+    network.
+  </p>
   <p>What whereti keeps, all on your PC:</p>
   <ul>
     <li>
@@ -48,6 +53,14 @@ import { CONTACT, COMPANY_EMAIL } from "../links";
     <li>
       <strong>Your settings</strong> (language, theme, shortcut, folders to skip) in
       <code>%AppData%\whereti\settings.txt</code>.
+    </li>
+    <li>
+      <strong>Your past searches</strong>, so <kbd>↑</kbd> can bring them back, in
+      <code>%AppData%\whereti\searches.txt</code>. The × next to one forgets it; “Remember your searches” in Settings,
+      Search turns this off, and Forget clears the list.
+    </li>
+    <li>
+      <strong>Network folders</strong> you added, in <code>%AppData%\whereti\network.txt</code>, and the names found in them, in a cache in <code>%LocalAppData%\whereti</code>.
     </li>
     <li>
       <strong>What you open</strong>, so those files come first: the files you opened from whereti and how often, in
@@ -66,8 +79,8 @@ import { CONTACT, COMPANY_EMAIL } from "../links";
   </ul>
   <p>
     Text in scans and pictures is read by the text recognition built into Windows, on your PC; nothing is sent anywhere
-    for it. whereti keeps no history of what you search. The recent files it shows before you type come from Windows' own list
-    of recent files. Uninstalling whereti removes the index and the settings.
+    for it. Thumbnails in the Images grid come from Windows' own thumbnail cache. The recent files whereti shows before you type
+    come from Windows' own list of recent files. Uninstalling whereti removes the index and the settings.
   </p>
 
   <h2 id="website">This website</h2>

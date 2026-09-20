@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 ---
-<Base title="Search tips" description="Everything you can type in whereti: words, quotes, or and not, wildcards, file types, dates and date ranges, sizes, folders, inside documents, photos by place and by what they show, and the keyboard." prose>
+<Base title="Search tips" description="Everything you can type in whereti: words, quotes, or and not, wildcards, file types, dates, sizes, folders, inside documents and archives, photos by place, camera and date taken, music and documents by their details, duplicates, past searches and the keyboard." prose>
   <h1>Search tips</h1>
   <p class="lead">
     Plain words are enough almost always. When you want more, everything below works in the search box, and it can be
@@ -20,6 +20,7 @@ import Base from "../layouts/Base.astro";
         <tr><td><code>report !draft</code></td><td>Leaves out names with the word after <code>!</code>.</td></tr>
         <tr><td><code>*.pdf</code>, <code>img_????.jpg</code></td><td>The whole name: <code>*</code> stands for any letters, <code>?</code> for exactly one.</td></tr>
         <tr><td><code>projects\whereti</code></td><td>A backslash searches the path, not only the name.</td></tr>
+        <tr><td><code>facutra</code></td><td>A typo is forgiven: when a word of 4 letters or more finds almost nothing, names with that word one letter off show under “Close matches”, so <code>facutra</code> finds “factura”.</td></tr>
       </tbody>
     </table>
   </div>
@@ -76,25 +77,64 @@ import Base from "../layouts/Base.astro";
       </tbody>
     </table>
   </div>
+  <p>
+    <strong>Archives</strong> are searched too: a ZIP, 7z or RAR file is found by the names of the files inside it, and a
+    ZIP or 7z also by the text of the documents inside (a very large ZIP by its list of names only).
+  </p>
+
+  <h2 id="details">Photos, music and documents by their details</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Type</th><th>Keeps</th></tr></thead>
+      <tbody>
+        <tr><td><code>taken:2025-08</code></td><td>Photos taken on a day, in a month or a year, or in a range: <code>taken:2025-06..2025-08</code>. The date the camera wrote, not when the file was copied.</td></tr>
+        <tr><td><code>camera:iphone</code></td><td>Photos taken with a camera or phone whose name has that word: <code>camera:canon</code>, <code>camera:pixel</code>.</td></tr>
+        <tr><td><code>width:&gt;4000</code>, <code>height:&lt;1000</code></td><td>Images by their size in pixels, with <code>&gt;</code>, <code>&lt;</code> or an exact number.</td></tr>
+        <tr><td><code>artist:queen</code>, <code>album:...</code></td><td>Music by its artist or album.</td></tr>
+        <tr><td><code>duration:&gt;5m</code></td><td>Music and videos by length: <code>90s</code>, <code>5m</code>, <code>1h</code>, <code>3m30s</code>, or a range like <code>duration:1m..5m</code>.</td></tr>
+        <tr><td><code>author:popescu</code></td><td>Word, Excel, PowerPoint and OpenDocument files by their author.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>They combine with everything else: <code>camera:canon taken:2025 loc:italia</code>.</p>
+
+  <h2 id="dupes">Duplicates</h2>
+  <p>
+    <code>dupe:</code> finds identical files across your disks, compared by their content, not only their size. The sets
+    that would free the most space come first. Add any filter to narrow it: <code>dupe: size:&gt;100mb</code>,
+    <code>dupe: ext:jpg</code>. Files that live only in the cloud are never read; files over 1 GB are compared by 64
+    samples.
+  </p>
 
   <h2 id="combine">Together</h2>
   <p>
     Everything combines: <code>invoice ext:pdf dm:thisyear</code>, <code>loc:greece dm:2025-08</code>,
     <code>contract !draft path:D:\Company size:&lt;5mb</code>. The tabs above the results (Documents, Images, Audio, Video,
-    Folders) add their own filter on top.
+    Folders) add their own filter on top; Images shows the results as a grid of thumbnails.
+  </p>
+
+  <h2 id="history">Past searches</h2>
+  <p>
+    With the search box empty, <kbd>↑</kbd> brings back what you searched before. Past searches also show as buttons on
+    the empty page; the small × on one forgets it. Settings, Search, “Remember your searches” turns this off, and Forget
+    clears the list. It stays on your PC.
   </p>
 
   <h2 id="keys">Keyboard</h2>
   <div class="table-wrap">
     <table>
       <tbody>
-        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Space</kbd></td><td>Opens whereti from any app (you can pick another shortcut in Settings).</td></tr>
-        <tr><td><kbd>↑</kbd> <kbd>↓</kbd>, <kbd>Page Up</kbd> <kbd>Page Down</kbd></td><td>Move through the results.</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Space</kbd></td><td>Opens whereti from any app (you can pick another shortcut in Settings). Pressed while an app's Open or Save window is in front, <kbd>Enter</kbd> on a result takes that window to the result's folder.</td></tr>
+        <tr><td><kbd>↑</kbd> <kbd>↓</kbd>, <kbd>Page Up</kbd> <kbd>Page Down</kbd></td><td>Move through the results. In the Images grid, the arrows move by tile and by line.</td></tr>
+        <tr><td><kbd>↑</kbd> in an empty box</td><td>Brings back your past searches.</td></tr>
         <tr><td><kbd>Enter</kbd></td><td>Opens the file, folder, app or Windows setting.</td></tr>
         <tr><td><kbd>Ctrl</kbd>+<kbd>Enter</kbd></td><td>Shows the file in its folder, in Explorer.</td></tr>
         <tr><td><kbd>Tab</kbd></td><td>Shows or hides the preview.</td></tr>
-        <tr><td><kbd>Shift</kbd>+<kbd>F10</kbd></td><td>The usual right-click menu of Explorer.</td></tr>
+        <tr><td><kbd>F2</kbd></td><td>Renames the file, in a box like Explorer's.</td></tr>
+        <tr><td><kbd>Delete</kbd></td><td>Moves the file to the Recycle Bin.</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>C</kbd></td><td>Copies the file itself: paste it into a folder, an e-mail or a chat.</td></tr>
         <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd></td><td>Copies the path.</td></tr>
+        <tr><td><kbd>Shift</kbd>+<kbd>F10</kbd></td><td>The usual right-click menu of Explorer.</td></tr>
         <tr><td><kbd>F1</kbd></td><td>The list of search commands.</td></tr>
         <tr><td><kbd>Ctrl</kbd>+<kbd>,</kbd></td><td>Settings.</td></tr>
         <tr><td><kbd>Esc</kbd></td><td>Clears the search; with nothing typed, hides whereti.</td></tr>

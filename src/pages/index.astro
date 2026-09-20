@@ -106,13 +106,13 @@ import {
 
         <article class="tile t-explorer">
           <h3>Works like Explorer</h3>
-          <p>Enter opens, Ctrl+Enter shows it in its folder, right-click gives the usual menu, drag a result into any app.</p>
+          <p>Enter opens, Ctrl+Enter shows it in its folder, F2 renames, Delete sends it to the Recycle Bin, Ctrl+C copies the file. Right-click and drag work as usual.</p>
         </article>
 
         <article class="tile t-filters">
           <h3>Filters, if you like</h3>
-          <div class="chips" aria-hidden="true"><code>ext:pdf</code><code>dm:2025-03..2025-06</code><code>loc:italy</code></div>
-          <p>Plain words always work too.</p>
+          <div class="chips" aria-hidden="true"><code>ext:pdf</code><code>dm:2025-03..2025-06</code><code>camera:iphone</code><code>author:popescu</code></div>
+          <p>Plain words always work too, and a typo is forgiven.</p>
           <a href="/search/">Every search command →</a>
         </article>
 
@@ -122,7 +122,7 @@ import {
             Type “rome” or “greece” and the photos taken there come up, from the position your phone wrote into them.
             Turn on recognition and “dog”, “beach” or “pizza” find the photos that show them. All of it on your PC.
           </p>
-          <div class="chips" aria-hidden="true"><code>loc:greece</code><code>dog</code><code>beach dm:2025-08</code></div>
+          <div class="chips" aria-hidden="true"><code>loc:greece</code><code>dog</code><code>beach taken:2025-08</code></div>
         </article>
 
         <article class="tile t-learns">
@@ -132,6 +132,47 @@ import {
             and each part has its own switch.
           </p>
           <a href="/search/#order">What comes first →</a>
+        </article>
+
+        <article class="tile t-wide">
+          <div class="big-ic" aria-hidden="true"><Icon name="window" /></div>
+          <h3>Straight into Open and Save</h3>
+          <p>
+            Press Ctrl+Shift+Space while an app's Open or Save window is in front, pick the result, press Enter: that
+            window jumps to the file's folder. whereti only fills in its address bar; you still choose Open or Save.
+          </p>
+        </article>
+
+        <article class="tile">
+          <div class="big-ic" aria-hidden="true"><Icon name="grid" /></div>
+          <h3>Pictures as a grid</h3>
+          <p>The Images tab shows thumbnails, straight from Windows. The arrows move by tile and by line.</p>
+        </article>
+
+        <article class="tile">
+          <div class="big-ic" aria-hidden="true"><Icon name="archive" /></div>
+          <h3>Inside ZIP, 7z and RAR</h3>
+          <p>Archives are found by the files they hold, and ZIP and 7z also by the text of the documents inside.</p>
+        </article>
+
+        <article class="tile t-wide">
+          <div class="big-ic" aria-hidden="true"><Icon name="copy" /></div>
+          <h3>Find duplicates</h3>
+          <p>
+            <code class="inl">dupe:</code> lists identical files across your disks, compared by content, with the ones
+            that free the most space first. Files only in the cloud are never downloaded for it.
+          </p>
+          <div class="chips" aria-hidden="true"><code>dupe: size:&gt;100mb</code><code>dupe: ext:jpg</code></div>
+        </article>
+
+        <article class="tile t-wide">
+          <div class="big-ic" aria-hidden="true"><Icon name="server" /></div>
+          <h3>Your NAS too</h3>
+          <p>
+            Add a network folder like <code class="inl">{"\\\\nas\\photos"}</code> or a mapped drive in Settings, Search. whereti looks through it once
+            an hour and finds its files by name, under “On the network”.
+          </p>
+          <a href="/faq/#network">How it works →</a>
         </article>
       </div>
     </div>
