@@ -483,9 +483,9 @@ mark { background: rgba(255, 196, 0, 0.38); color: inherit; border-radius: 3px; 
 .qa summary::after {
   content: ""; flex: none; width: 8px; height: 8px; margin-right: 2px;
   border-right: 1.8px solid var(--dim); border-bottom: 1.8px solid var(--dim);
-  transform: rotate(45deg) translateY(-2px); transition: transform 0.2s;
+  margin-top: -4px; transform: rotate(45deg); transition: transform 0.2s, margin 0.2s;
 }
-.qa[open] summary::after { transform: rotate(225deg) translateY(-2px); }
+.qa[open] summary::after { margin-top: 4px; transform: rotate(-135deg); }
 .qa .a { padding: 0 16px 6px; color: var(--muted); font-size: 14.5px; }
 .qa .a strong { color: var(--text); }
 

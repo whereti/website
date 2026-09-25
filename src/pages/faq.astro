@@ -35,8 +35,8 @@ import { CONTACT, REPO } from "../links";
           cards. A stick shows up in the results a few seconds after you plug it in, and leaves when you take it out.
         </li>
         <li>
-          <strong>Contents</strong> of PDF, Word, Excel, PowerPoint, OpenDocument, RTF and HTML files, e-mails saved as .eml or
-          .msg, and text files in Documents, Desktop and Downloads.
+          <strong>Contents</strong> of documents, e-mails, e-books and text files in Documents, Desktop and Downloads. See
+          <a href="#formats">which files</a>.
         </li>
         <li>
           <strong>Text in scans and pictures:</strong> scanned PDFs, and photos or screenshots in Documents, Desktop and
@@ -58,6 +58,26 @@ import { CONTACT, REPO } from "../links";
       <p>
         Some folders are skipped on purpose, like Windows' own system folders and temporary files. You can add your own in
         Settings, Search, "Folders whereti skips".
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="formats">
+    <summary>Which files can it search inside?</summary>
+    <div class="a">
+      <ul>
+        <li><strong>Word</strong> (.doc, .docx), <strong>Excel</strong> (.xls, .xlsx, .xlsb), <strong>PowerPoint</strong> (.ppt, .pptx), and their templates</li>
+        <li><strong>OpenDocument</strong> (.odt, .ods, .odp) and its templates</li>
+        <li><strong>PDF</strong>, with text recognition for scans</li>
+        <li><strong>RTF</strong>, <strong>HTML</strong>, <strong>XPS</strong> and <strong>OXPS</strong></li>
+        <li><strong>E-mails</strong> (.eml, .msg) and <strong>e-books</strong> (.epub, .fb2)</li>
+        <li>The documents inside <strong>ZIP, 7z and RAR</strong> files</li>
+        <li><strong>Plain text</strong> and about 80 kinds of source code</li>
+        <li><strong>Text in pictures</strong>, read by the text recognition built into Windows</li>
+      </ul>
+      <p>
+        Pictures are found by name, place and date in every format Windows can open, including AVIF, JPEG XL, HEIC and
+        HEIF, JXR and camera RAW files (CR2, CR3, NEF, ARW, RAF, ORF, RW2, DNG and about 30 more). The Images tab also
+        holds SVG, PSD, AI, EPS and other drawing files.
       </p>
     </div>
   </details>
@@ -93,6 +113,18 @@ import { CONTACT, REPO } from "../links";
         once, 84 MB, from Hugging Face. From then on photos are read on your PC, slowly and at low priority, pausing while
         you play or work, and never leave it. Each photo gets up to three labels from about 200, in all 8 languages, so
         “câine”, “dog” and “Hund” find the same photo.
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="meaning">
+    <summary>Can whereti find a document if I don't remember the exact words?</summary>
+    <div class="a">
+      <p>
+        Yes, if you turn on Settings, Search, “Search documents by meaning” (it is off by default). whereti then downloads
+        a small model that knows many languages, once, 135 MB, from Hugging Face. From then on, typing two or more words
+        also shows documents that say the same thing in other words, under “Close in meaning”: “rental contract” finds the
+        lease. Documents are read on your PC and never leave it. It works best when the words and the document are in the
+        same language.
       </p>
     </div>
   </details>
@@ -254,7 +286,8 @@ import { CONTACT, REPO } from "../links";
         Your files, their names, your photos and your searches never leave your PC. whereti makes two kinds of request, and
         sends nothing about you in either: the update check, at most once a day, which asks releases.whereti.com whether a
         newer version exists and sends only its own version number (you can turn it off in Settings, General); and, only if
-        you turn on recognizing objects and animals in photos, one download of the model from Hugging Face. See the
+        you turn on recognizing objects and animals in photos or search by meaning, one download of each model from
+        Hugging Face. See the
         <a href="/privacy/">privacy page</a> for every detail.
       </p>
     </div>

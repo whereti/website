@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 ---
-<Base title="Search tips" description="Everything you can type in whereti: words, quotes, or and not, wildcards, file types, dates, sizes, folders, inside documents and archives, photos by place, camera and date taken, music and documents by their details, duplicates, past searches and the keyboard." prose>
+<Base title="Search tips" description="Everything you can type in whereti: words, quotes, or and not, wildcards, file types, dates, sizes, folders, inside documents and archives, by meaning, photos by place, camera and date taken, music and documents by their details, duplicates, past searches and the keyboard." prose>
   <h1>Search tips</h1>
   <p class="lead">
     Plain words are enough almost always. When you want more, everything below works in the search box, and it can be
@@ -71,7 +71,8 @@ import Base from "../layouts/Base.astro";
     <table>
       <thead><tr><th>Type</th><th>Finds</th></tr></thead>
       <tbody>
-        <tr><td><code>content:rent</code></td><td>Only files that have the words inside (PDF, Word, Excel, PowerPoint, e-mails, text, and the text in scans and photos). Other words in the search then filter by name.</td></tr>
+        <tr><td><code>content:rent</code></td><td>Only files that have the words inside (PDF, Word, Excel, PowerPoint, OpenDocument, e-mails, e-books, XPS, text, and the text in scans and photos; see <a href="/faq/#formats">every format</a>). Other words in the search then filter by name.</td></tr>
+        <tr><td><code>rental contract</code></td><td>With “Search documents by meaning” turned on in Settings, Search, two or more words also find documents that say the same thing in other words, under “Close in meaning”: here, the lease. Best within one language. See <a href="/faq/#meaning">Questions</a>.</td></tr>
         <tr><td><code>loc:italy</code></td><td>Photos taken in a town, region or country, from the GPS position your phone or camera wrote into them. <code>rome</code>, <code>roma</code> or <code>italia</code> work as plain words too.</td></tr>
         <tr><td><code>dog</code>, <code>beach</code>, <code>car</code></td><td>Photos that show it, if you turned on “Recognize objects and animals in photos” (see <a href="/faq/#photos">Questions</a>). Any of whereti's 8 languages works: <code>câine</code>, <code>Hund</code>, <code>perro</code>.</td></tr>
       </tbody>

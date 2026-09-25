@@ -29,8 +29,9 @@ import { SECURITY, REPO, INSTALLER_SHA256, LATEST_INSTALLER_NAME } from "../link
   <h2 id="design">How it is kept safe</h2>
   <ul>
     <li>
-      <strong>Almost no network.</strong> The service, the document reader and the installer never connect to anything.
-      The search window asks for updates at most once a day, sending only its version number, and reads the names in
+      <strong>Almost no network.</strong> The document reader and the installer never connect to anything. The service
+      only downloads the photo or meaning model, once each, if you turn them on, and checks them by SHA-256. The search
+      window asks for updates at most once a day, sending only its version number, and reads the names in
       network folders only if you add some.
     </li>
     <li>
