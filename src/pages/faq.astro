@@ -44,8 +44,12 @@ import { CONTACT, REPO } from "../links";
           your PC.
         </li>
         <li>
-          <strong>Where photos were taken</strong>, in Pictures and in the folders above, and, if you turn it on,
-          <strong>what they show</strong>. See <a href="#photos">the photos question</a>.
+          <strong>Where photos were taken</strong>, when and with which camera, anywhere on your disks, and, if you turn it
+          on, <strong>what they show</strong>. See <a href="#photos">the photos question</a>.
+        </li>
+        <li>
+          <strong>Music and videos</strong> by artist, album and length, anywhere on your disks (outside your own folders,
+          from 1 MB up).
         </li>
         <li>
           <strong>Archives:</strong> ZIP, 7z and RAR files by the names of the files inside, and ZIP and 7z also by the
@@ -78,6 +82,10 @@ import { CONTACT, REPO } from "../links";
         Pictures are found by name, place and date in every format Windows can open, including AVIF, JPEG XL, HEIC and
         HEIF, JXR and camera RAW files (CR2, CR3, NEF, ARW, RAF, ORF, RW2, DNG and about 30 more). The Images tab also
         holds SVG, PSD, AI, EPS and other drawing files.
+      </p>
+      <p>
+        Not yet: the date and camera of some RAW formats (CR3, RAF, ORF), the author of a PDF, and the length of videos
+        other than MP4 and its kin (not MKV or AVI).
       </p>
     </div>
   </details>
@@ -113,6 +121,12 @@ import { CONTACT, REPO } from "../links";
         once, 84 MB, from Hugging Face. From then on photos are read on your PC, slowly and at low priority, pausing while
         you play or work, and never leave it. Each photo gets up to three labels from about 200, in all 8 languages, so
         “câine”, “dog” and “Hund” find the same photo.
+      </p>
+      <p>
+        <strong>Where.</strong> Photos from cameras and phones (JPG, HEIC, AVIF, JPEG XL, TIFF and camera RAW) are read
+        anywhere on your disks. PNG and WebP, mostly screenshots and images of games and apps, only in Pictures and the
+        folders whereti reads documents in. Program, cache, hidden and system files, and files that live only in the
+        cloud, are never read.
       </p>
     </div>
   </details>
@@ -154,8 +168,9 @@ import { CONTACT, REPO } from "../links";
       <p>
         Yes: type <code>dupe:</code>. whereti lists files that are identical across your disks, compared by their content,
         not only by size, and shows first the sets that would free the most space. Narrow it with any filter, like
-        <code>dupe: size:&gt;100mb</code> or <code>dupe: ext:jpg</code>. Files that live only in the cloud are never read
-        for it, and files over 1 GB are compared by 64 samples.
+        <code>dupe: size:&gt;100mb</code> or <code>dupe: ext:jpg</code>. A set shows only when every byte of its files
+        matched. Very large files are compared over several searches, each going on where the last stopped. Hard links
+        are not counted as copies, and files that live only in the cloud are never read.
       </p>
     </div>
   </details>
@@ -217,6 +232,11 @@ import { CONTACT, REPO } from "../links";
         Yes, on the selected result: <kbd>F2</kbd> renames it, in a box like Explorer's; <kbd>Delete</kbd> moves it to the
         Recycle Bin; <kbd>Ctrl</kbd>+<kbd>C</kbd> copies the file itself, to paste into a folder, an e-mail or a chat;
         <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> copies its path.
+      </p>
+      <p>
+        <kbd>Delete</kbd> works only when you are in the list (the search box is empty, or you moved with the arrows or
+        clicked), so it never eats a letter you meant to erase. A network drive has no Recycle Bin: there whereti asks
+        first, then deletes for good.
       </p>
     </div>
   </details>
