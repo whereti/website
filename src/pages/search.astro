@@ -71,7 +71,7 @@ import Base from "../layouts/Base.astro";
     <table>
       <thead><tr><th>Type</th><th>Finds</th></tr></thead>
       <tbody>
-        <tr><td><code>content:rent</code></td><td>Only files that have the words inside (PDF, Word, Excel, PowerPoint, OpenDocument, e-mails, e-books, XPS, text, and the text in scans and photos; see <a href="/faq/#formats">every format</a>). Other words in the search then filter by name.</td></tr>
+        <tr><td><code>content:rent</code>, <code>c:rent</code>, <code>contains:rent</code></td><td>Only files that have the words inside (PDF, Word, Excel, PowerPoint, OpenDocument, e-mails, e-books, XPS, text, and the text in scans and photos; see <a href="/faq/#formats">every format</a>). Other words in the search then filter by name.</td></tr>
         <tr><td><code>rental contract</code></td><td>With “Search documents by meaning” turned on in Settings, Search, two or more words also find documents that say the same thing in other words, under “Close in meaning”: here, the lease. Best within one language. See <a href="/faq/#meaning">Questions</a>.</td></tr>
         <tr><td><code>loc:italy</code></td><td>Photos taken in a town, region or country, from the GPS position your phone or camera wrote into them. <code>rome</code>, <code>roma</code> or <code>italia</code> work as plain words too.</td></tr>
         <tr><td><code>dog</code>, <code>beach</code>, <code>car</code></td><td>Photos that show it, if you turned on “Recognize objects and animals in photos” (see <a href="/faq/#photos">Questions</a>). Any of whereti's 8 languages works: <code>câine</code>, <code>Hund</code>, <code>perro</code>.</td></tr>
@@ -99,8 +99,9 @@ import Base from "../layouts/Base.astro";
   </div>
   <p>They combine with everything else: <code>camera:canon taken:2025 loc:italia</code>.</p>
   <p>
-    Photos from cameras and phones (JPG, HEIC, AVIF, JPEG XL, TIFF, RAW) are read anywhere on your disks; PNG and WebP
-    only in Pictures and the folders read for documents. Music and videos are read anywhere too, outside your own folders
+    Photos from cameras and phones (JPG, HEIC, AVIF, JPEG XL, TIFF, RAW) are read for place and contents anywhere on your
+    disks; PNG and WebP only in Pictures and the folders read for documents. The text in pictures (a sign, a receipt, a
+    screenshot) is read anywhere, in every format but camera RAW. Music and videos are read anywhere too, outside your own folders
     from 1 MB up. Program, cache, hidden and system files, and files only in the cloud, are never read. The preview shows
     what whereti read from the selected file: what a photo shows, when and with which camera it was taken and its size in
     pixels, a song's artist, album and length, a document's author.
