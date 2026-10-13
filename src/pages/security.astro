@@ -46,7 +46,8 @@ import { SECURITY, REPO, INSTALLER_SHA256, LATEST_INSTALLER_NAME } from "../link
     <li>
       <strong>Documents are read apart.</strong> PDF and Office files are complex, and a damaged or crafted one can crash
       the program reading it. whereti reads them in a separate short-lived process with time and memory limits, so the
-      worst case is one document skipped.
+      worst case is one document skipped. Outlook mailboxes are read there too, from a copy of the open file that the
+      service hands it.
     </li>
     <li><strong>Nothing runs from your files.</strong> whereti reads documents as text. It never runs macros or scripts in them.</li>
     <li><strong>Written in Rust,</strong> which rules out whole families of memory bugs.</li>

@@ -71,7 +71,7 @@ import Base from "../layouts/Base.astro";
     <table>
       <thead><tr><th>Type</th><th>Finds</th></tr></thead>
       <tbody>
-        <tr><td><code>content:rent</code>, <code>c:rent</code>, <code>contains:rent</code></td><td>Only files that have the words inside (PDF, Word, Excel, PowerPoint, OpenDocument, e-mails, e-books, XPS, text, and the text in scans and photos; see <a href="/faq/#formats">every format</a>). Other words in the search then filter by name.</td></tr>
+        <tr><td><code>content:rent</code>, <code>c:rent</code>, <code>contains:rent</code></td><td>Only files that have the words inside (PDF, Word, Excel, PowerPoint, OpenDocument, e-mails and Outlook mailboxes, e-books, XPS, text, and the text in scans and photos; see <a href="/faq/#formats">every format</a>). Other words in the search then filter by name.</td></tr>
         <tr><td><code>rental contract</code></td><td>With “Search documents by meaning” turned on in Settings, Search, two or more words also find documents that say the same thing in other words, under “Close in meaning”: here, the lease. Best within one language. See <a href="/faq/#meaning">Questions</a>.</td></tr>
         <tr><td><code>loc:italy</code></td><td>Photos taken in a town, region or country, from the GPS position your phone or camera wrote into them. <code>rome</code>, <code>roma</code> or <code>italia</code> work as plain words too.</td></tr>
         <tr><td><code>dog</code>, <code>beach</code>, <code>car</code></td><td>Photos that show it, if you turned on “Recognize objects and animals in photos” (see <a href="/faq/#photos">Questions</a>). Any of whereti's 8 languages works: <code>câine</code>, <code>Hund</code>, <code>perro</code>.</td></tr>
@@ -80,7 +80,7 @@ import Base from "../layouts/Base.astro";
   </div>
   <p>
     <strong>Archives</strong> are searched too: a ZIP, 7z or RAR file is found by the names of the files inside it, and a
-    ZIP or 7z also by the text of the documents inside (a very large ZIP by its list of names only).
+    ZIP or 7z also by the text of the documents inside (a very large ZIP or 7z by its list of names only).
   </p>
 
   <h2 id="details">Photos, music and documents by their details</h2>
@@ -88,12 +88,12 @@ import Base from "../layouts/Base.astro";
     <table>
       <thead><tr><th>Type</th><th>Keeps</th></tr></thead>
       <tbody>
-        <tr><td><code>taken:2025-08</code></td><td>Photos taken on a day, in a month or a year, or in a range: <code>taken:2025-06..2025-08</code>. The date the camera wrote, not when the file was copied. Not yet for some RAW formats (CR3, RAF, ORF).</td></tr>
+        <tr><td><code>taken:2025-08</code></td><td>Photos taken on a day, in a month or a year, or in a range: <code>taken:2025-06..2025-08</code>. The date the camera wrote, not when the file was copied.</td></tr>
         <tr><td><code>camera:iphone</code></td><td>Photos taken with a camera or phone whose name has that word: <code>camera:canon</code>, <code>camera:pixel</code>.</td></tr>
-        <tr><td><code>width:&gt;4000</code>, <code>height:&lt;1000</code></td><td>Images by their size in pixels, with <code>&gt;</code>, <code>&lt;</code> or an exact number.</td></tr>
+        <tr><td><code>width:&gt;4000</code>, <code>height:&lt;1000</code></td><td>Pictures by their size in pixels, with <code>&gt;</code>, <code>&lt;</code> or an exact number (pictures only, not videos).</td></tr>
         <tr><td><code>artist:queen</code>, <code>album:...</code></td><td>Music by its artist or album.</td></tr>
-        <tr><td><code>duration:&gt;5m</code></td><td>Music and videos by length: <code>90s</code>, <code>5m</code>, <code>1h</code>, <code>3m30s</code>, or a range like <code>duration:1m..5m</code>. A value covers its whole last unit: <code>5m</code> is 5:00 to 5:59, so <code>&gt;5m</code> means longer than 5:59. Videos only in MP4 and its kin for now, not MKV or AVI.</td></tr>
-        <tr><td><code>author:popescu</code></td><td>Word, Excel, PowerPoint and OpenDocument files by their author (not PDF yet).</td></tr>
+        <tr><td><code>duration:&gt;5m</code></td><td>Music and videos by length: <code>90s</code>, <code>5m</code>, <code>1h</code>, <code>3m30s</code>, or a range like <code>duration:1m..5m</code>. A value covers its whole last unit: <code>5m</code> is 5:00 to 5:59, so <code>&gt;5m</code> means longer than 5:59. Videos in MP4, MOV, MKV, WebM, AVI and WMV.</td></tr>
+        <tr><td><code>author:popescu</code></td><td>PDF, Word, Excel, PowerPoint and OpenDocument files by their author.</td></tr>
       </tbody>
     </table>
   </div>

@@ -48,6 +48,10 @@ import { CONTACT, REPO } from "../links";
           on, <strong>what they show</strong>. See <a href="#photos">the photos question</a>.
         </li>
         <li>
+          <strong>Outlook mailboxes</strong> (.pst and .ost), message by message. See
+          <a href="#outlook">the Outlook question</a>.
+        </li>
+        <li>
           <strong>Music and videos</strong> by artist, album and length, anywhere on your disks (outside your own folders,
           from 1 MB up).
         </li>
@@ -73,7 +77,7 @@ import { CONTACT, REPO } from "../links";
         <li><strong>OpenDocument</strong> (.odt, .ods, .odp) and its templates</li>
         <li><strong>PDF</strong>, with text recognition for scans</li>
         <li><strong>RTF</strong>, <strong>HTML</strong>, <strong>XPS</strong> and <strong>OXPS</strong></li>
-        <li><strong>E-mails</strong> (.eml, .msg) and <strong>e-books</strong> (.epub, .fb2)</li>
+        <li><strong>E-mails</strong> (.eml, .msg), <strong>Outlook mailboxes</strong> (.pst, .ost) and <strong>e-books</strong> (.epub, .fb2)</li>
         <li>The documents inside <strong>ZIP, 7z and RAR</strong> files</li>
         <li><strong>Plain text</strong> and about 80 kinds of source code</li>
         <li><strong>Text in pictures</strong>, read by the text recognition built into Windows</li>
@@ -82,10 +86,6 @@ import { CONTACT, REPO } from "../links";
         Pictures are found by name, place and date in every format Windows can open, including AVIF, JPEG XL, HEIC and
         HEIF, JXR and camera RAW files (CR2, CR3, NEF, ARW, RAF, ORF, RW2, DNG and about 30 more). The Images tab also
         holds SVG, PSD, AI, EPS and other drawing files.
-      </p>
-      <p>
-        Not yet: the date and camera of some RAW formats (CR3, RAF, ORF), the author of a PDF, and the length of videos
-        other than MP4 and its kin (not MKV or AVI).
       </p>
     </div>
   </details>
@@ -153,12 +153,23 @@ import { CONTACT, REPO } from "../links";
       </p>
     </div>
   </details>
+  <details class="qa" id="outlook">
+    <summary>Can whereti search my Outlook e-mails?</summary>
+    <div class="a">
+      <p>
+        Yes, in classic Outlook: whereti reads its mailbox files (.pst and .ost), even when Outlook is closed. Each message
+        is found by its subject, sender, recipients, date and the start of its text, newest first. The mailbox is read in
+        the same isolated reader as documents, from a copy the background service hands it, and again at most once a day,
+        because Outlook changes it all the time. The new Outlook, which keeps mail in the cloud, is not covered.
+      </p>
+    </div>
+  </details>
   <details class="qa" id="zip">
     <summary>Does it search inside ZIP files?</summary>
     <div class="a">
       <p>
         Yes. A ZIP, 7z or RAR file is found by the names of the files it holds, so “invoice” finds the archive with an
-        invoice inside. ZIP and 7z files are also found by the text of the documents inside them; a very large ZIP only
+        invoice inside. ZIP and 7z files are also found by the text of the documents inside them; a very large one only
         by its list of names.
       </p>
     </div>
