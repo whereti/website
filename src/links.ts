@@ -6,7 +6,7 @@
 export const SITE = "https://whereti.com";
 export const REPO = "https://github.com/whereti/app";
 
-export const LATEST_VERSION = "0.0.25";
+export const LATEST_VERSION = "0.9.0";
 export const LATEST_TAG = `v${LATEST_VERSION}`;
 export const RELEASE_NOTES = `${REPO}/releases/latest`;
 export const ALL_RELEASES = `${REPO}/releases`;
