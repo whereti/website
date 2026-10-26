@@ -4,7 +4,7 @@
 // installer's Windows "Apps" entry use the same addresses.
 
 export const SITE = "https://whereti.com";
-export const REPO = "https://github.com/whereti/whereti";
+export const REPO = "https://github.com/whereti/app";
 
 export const LATEST_VERSION = "0.0.25";
 export const LATEST_TAG = `v${LATEST_VERSION}`;
