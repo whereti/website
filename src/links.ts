@@ -6,7 +6,7 @@
 export const SITE = "https://whereti.com";
 export const REPO = "https://github.com/whereti/whereti";
 
-export const LATEST_VERSION = "0.0.1";
+export const LATEST_VERSION = "0.0.25";
 export const LATEST_TAG = `v${LATEST_VERSION}`;
 export const RELEASE_NOTES = `${REPO}/releases/latest`;
 export const ALL_RELEASES = `${REPO}/releases`;
@@ -14,7 +14,7 @@ export const LATEST_INSTALLER_NAME = `whereti-setup-${LATEST_VERSION}.exe`;
 export const LATEST_INSTALLER = `${REPO}/releases/latest/download/${LATEST_INSTALLER_NAME}`;
 /** From scripts\package.ps1 -Release output; empty until the first release. */
 export const INSTALLER_SHA256 = "";
-export const INSTALLER_SIZE = "58 MB";
+export const INSTALLER_SIZE = "31 MB";
 
 export const CONTACT = "contact@whereti.com";
 export const SECURITY = "security@whereti.com";
