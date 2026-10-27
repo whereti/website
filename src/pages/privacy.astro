@@ -45,6 +45,12 @@ import { CONTACT, COMPANY_EMAIL } from "../links";
       and SHA-256 checksums match. Hugging Face sees that download like any other; nothing about you or your documents
       is sent. Documents are then read on your PC, in the same isolated reader.
     </li>
+    <li>
+      <strong>If Hugging Face cannot give a model</strong> (it is down, the model was taken off, or your network blocks
+      it), whereti downloads the same files from an unchanged copy in whereti's GitHub releases
+      (<code>github.com/whereti/app/releases/tag/models-1</code>), with the same size and checksum checks. GitHub sees
+      that download like any other.
+    </li>
   </ul>
   <p>
     <strong>Network folders.</strong> If you add a network folder or a mapped drive in Settings, Search, the search window
