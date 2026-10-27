@@ -41,6 +41,7 @@ jobs:
           cache-to: type=gha,mode=max
 
       # Skipped rather than failed when no deployment is wired up yet.
+      # Coolify 4.5 accepts only POST on /api/v1/deploy.
       - name: Trigger Coolify deploy
         env:
           WEBHOOKS: ${{ secrets.COOLIFY_WEBHOOKS }}
@@ -58,7 +59,7 @@ jobs:
             echo "Triggering deploy hook: ${hook%%\?*}"
             auth=()
             [ -n "$COOLIFY_API_TOKEN" ] && auth=(-H "Authorization: Bearer $COOLIFY_API_TOKEN")
-            code=$(curl -sS -o response.txt -w '%{http_code}' -X GET "${auth[@]}" "$hook")
+            code=$(curl -sS -o response.txt -w '%{http_code}' -X POST "${auth[@]}" "$hook")
             echo "HTTP $code: $(head -c 300 response.txt)"
             [ "$code" -lt 400 ] || exit 1
           done
