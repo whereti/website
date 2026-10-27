@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
-import { CONTACT, BUY_PERSONAL, BUY_BUSINESS } from "../links";
+import { CONTACT, BUY_PERSONAL, BUY_BUSINESS, BUY_READY } from "../links";
 ---
 <Base title="Support whereti" description="whereti is free in full. A supporter license, $19 for you or $39 per PC for a company, pays for its development. One payment, for life.">
   <section class="page-head">
@@ -26,7 +26,9 @@ import { CONTACT, BUY_PERSONAL, BUY_BUSINESS } from "../links";
             <li><Icon name="check" />On all your PCs</li>
             <li><Icon name="check" />Your name in whereti</li>
           </ul>
-          <a class="btn btn-primary" href={BUY_PERSONAL}><Icon name="heart" />Buy for $19</a>
+          {BUY_READY
+            ? <a class="btn btn-primary" href={BUY_PERSONAL}><Icon name="heart" />Buy for $19</a>
+            : <span class="btn btn-primary btn-soon" aria-disabled="true"><Icon name="heart" />Coming with whereti 1.0</span>}
         </div>
         <div class="plan" id="business">
           <span class="kicker">Business</span>
@@ -36,7 +38,9 @@ import { CONTACT, BUY_PERSONAL, BUY_BUSINESS } from "../links";
             <li><Icon name="check" />An invoice with your company's details</li>
             <li><Icon name="check" />As many PCs as you need</li>
           </ul>
-          <a class="btn btn-ghost" href={BUY_BUSINESS}>Buy for business</a>
+          {BUY_READY
+            ? <a class="btn btn-ghost" href={BUY_BUSINESS}>Buy for business</a>
+            : <span class="btn btn-ghost btn-soon" aria-disabled="true">Coming with whereti 1.0</span>}
         </div>
       </div>
     </div>
