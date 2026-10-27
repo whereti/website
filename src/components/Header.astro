@@ -1,4 +1,5 @@
 ---
+import Wordmark from "./Wordmark.astro";
 import Icon from "./Icon.astro";
 import { REPO, DOWNLOAD, CONTACT } from "../links";
 
@@ -16,7 +17,7 @@ const path = Astro.url.pathname;
   <div class="wrap">
     <a class="brand" href="/" aria-label="whereti home">
       <img src="/icon.svg" alt="" width="28" height="28" />
-      whereti
+      <Wordmark />
     </a>
     <nav class="nav" aria-label="Main">
       {nav.map((n) => <a href={n.href} aria-current={path === n.href ? "page" : undefined}>{n.label}</a>)}

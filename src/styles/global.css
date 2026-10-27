@@ -15,6 +15,8 @@
   --accent: #3b4ff0;
   --accent-soft: #eef0ff;
   --pin: #ff8a3d;
+  /* "ti" in the name: the pin's orange, a shade deeper so it reads on white */
+  --ti: linear-gradient(180deg, #ff9f2e, #e8590c);
   --ok: #047857;
   --grad-text: linear-gradient(100deg, #2f6bff, #4a4bf0 50%, #6c2bd9);
   --btn-bg: linear-gradient(135deg, #3366ff, #5b3fe0);
@@ -28,6 +30,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
+    --ti: linear-gradient(180deg, #ffd66b, #ff8a3d);
     --bg: #07080e;
     --bg-alt: #0c0e17;
     --surface: #10131d;
@@ -46,6 +49,7 @@
   }
 }
 :root[data-theme="dark"] {
+  --ti: linear-gradient(180deg, #ffd66b, #ff8a3d);
   --bg: #07080e;
   --bg-alt: #0c0e17;
   --surface: #10131d;
@@ -144,6 +148,9 @@ kbd {
 .site-header .wrap { display: flex; align-items: center; gap: 12px; height: 56px; }
 .brand { display: inline-flex; align-items: center; gap: 8px; color: var(--text); font-weight: 650; font-size: 17px; letter-spacing: -0.03em; }
 .brand:hover { text-decoration: none; }
+.wordmark .ti { background: var(--ti); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.name-note { margin: 14px 0 0; font-size: 13.5px; color: var(--muted); }
+.name-note .wordmark { font-weight: 650; color: var(--text); letter-spacing: -0.02em; }
 .brand img { width: 26px; height: 26px; border-radius: 7px; }
 .nav { display: none; gap: 2px; margin-left: 14px; }
 .nav a { color: var(--muted); padding: 5px 10px; border-radius: 8px; font-size: 14px; font-weight: 500; }
