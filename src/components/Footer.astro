@@ -31,7 +31,7 @@ import { REPO, CONTACT, SECURITY, DOWNLOAD_INFO, RELEASE_NOTES, SILENTSILO } fro
         <h4>Contact</h4>
         <ul>
           <li><a href={`mailto:${CONTACT}`}>{CONTACT}</a></li>
-          <li><a href={`mailto:${SECURITY}`}>{SECURITY}</a></li>
+          {SECURITY !== CONTACT && <li><a href={`mailto:${SECURITY}`}>{SECURITY}</a></li>}
           <li><a href="/who/">Who makes this</a></li>
           <li><a href="/legal/">Legal notice</a></li>
         </ul>

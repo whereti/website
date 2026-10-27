@@ -17,8 +17,8 @@ export const LATEST_INSTALLER = `${REPO}/releases/download/${LATEST_TAG}/${LATES
 export const INSTALLER_SHA256 = "c63dabeaaf5b98a1aeedb642436b2180143269bf00bf3584d28aab035450ddf7";
 export const INSTALLER_SIZE = "31 MB";
 
-export const CONTACT = "contact@whereti.com";
-export const SECURITY = "security@whereti.com";
+export const CONTACT = "contact@softwarehive.ro";
+export const SECURITY = "contact@softwarehive.ro";
 export const COMPANY_EMAIL = "contact@softwarehive.ro";
 export const SILENTSILO = "https://silentsilo.com";
 
