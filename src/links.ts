@@ -26,7 +26,7 @@ export const SILENTSILO = "https://silentsilo.com";
  *  product links before the site goes live. */
 export const BUY_PERSONAL = "https://whereti.lemonsqueezy.com/buy/TODO-personal";
 export const BUY_BUSINESS = "https://whereti.lemonsqueezy.com/buy/TODO-business";
-/** Until both are real, the buy buttons show as "coming with 1.0". */
+/** Until both are real, the buy buttons show "Checkout opens soon". */
 export const BUY_READY = !BUY_PERSONAL.includes("TODO") && !BUY_BUSINESS.includes("TODO");
 
 /** Where the download button goes: the installer itself. */

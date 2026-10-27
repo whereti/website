@@ -1,0 +1,60 @@
+---
+import Base from "../layouts/Base.astro";
+import { CONTACT, REPO } from "../links";
+---
+<Base title="Terms of sale" description="What you buy with a whereti supporter license, how it is delivered, and how refunds work." prose>
+  <h1>Terms of sale</h1>
+  <p class="lead">For the whereti supporter license. The app itself is free and needs none of this.</p>
+
+  <h2>What you buy</h2>
+  <p>
+    A supporter license is a digital product: a license key for whereti, issued in your name or your company's name,
+    for a one-time payment.
+  </p>
+  <ul>
+    <li><strong>Personal, $19:</strong> one person, on all their PCs.</li>
+    <li><strong>Business, $39 per PC:</strong> a company, for as many PCs as it buys, with an invoice in the company's name.</li>
+  </ul>
+  <p>
+    Entered in whereti (Settings, Support), the key registers your copy to that name, which whereti then shows. It is
+    valid for life, for this and every future version, and works offline. It is not a subscription and never renews.
+  </p>
+
+  <h2>Who sells it</h2>
+  <p>
+    The license is sold through Lemon Squeezy, the merchant of record: it takes the payment, charges the VAT or sales
+    tax due in your country, and issues the receipt and invoice. Its own terms cover the payment. whereti is made by
+    SOFTWARE HIVE S.R.L., Romania (details in the <a href="/legal/">legal notice</a>).
+  </p>
+
+  <h2>Price</h2>
+  <p>
+    Prices are in US dollars. The checkout shows the final price, with any tax, before you pay.
+  </p>
+
+  <h2>Delivery</h2>
+  <p>
+    The key is e-mailed within minutes of the payment, from licenses@whereti.com. If it has not arrived within an
+    hour, write to <a href={`mailto:${CONTACT}`}>{CONTACT}</a> with your order number.
+  </p>
+
+  <h2>Refunds</h2>
+  <p>
+    Within 14 days of the purchase you can have your money back, without giving a reason: write to
+    <a href={`mailto:${CONTACT}`}>{CONTACT}</a> with your order number. The refund goes back the way you paid, through
+    Lemon Squeezy.
+  </p>
+
+  <h2>The software</h2>
+  <p>
+    whereti is free software under the <a href={`${REPO}/blob/main/LICENSE`}>MIT license</a>, provided as it is. The
+    supporter license does not change those terms, and nothing in whereti stops working without it.
+  </p>
+
+  <h2>Law and disputes</h2>
+  <p>
+    These terms follow Romanian law. If you buy as a consumer, you keep every right the law of your own country gives
+    you. Write to us first at <a href={`mailto:${CONTACT}`}>{CONTACT}</a>; in Romania, the consumer protection
+    authority is <a href="https://anpc.ro">ANPC</a>.
+  </p>
+</Base>

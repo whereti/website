@@ -9,8 +9,8 @@ import { CONTACT, BUY_PERSONAL, BUY_BUSINESS, BUY_READY } from "../links";
       <span class="kicker">Supporter license</span>
       <h1>Support <span class="grad">whereti</span></h1>
       <p>
-        whereti is free, all of it, for everyone. If it saves you time, a supporter license pays for its development,
-        and whereti thanks you by name.
+        whereti is free, all of it, for everyone. If it saves you time, a supporter license, a license key in your
+        name that whereti shows, pays for its development.
       </p>
     </div>
   </section>
@@ -28,7 +28,7 @@ import { CONTACT, BUY_PERSONAL, BUY_BUSINESS, BUY_READY } from "../links";
           </ul>
           {BUY_READY
             ? <a class="btn btn-primary" href={BUY_PERSONAL}><Icon name="heart" />Buy for $19</a>
-            : <span class="btn btn-primary btn-soon" aria-disabled="true"><Icon name="heart" />Coming with whereti 1.0</span>}
+            : <span class="btn btn-primary btn-soon" aria-disabled="true"><Icon name="heart" />Checkout opens soon</span>}
         </div>
         <div class="plan" id="business">
           <span class="kicker">Business</span>
@@ -40,7 +40,7 @@ import { CONTACT, BUY_PERSONAL, BUY_BUSINESS, BUY_READY } from "../links";
           </ul>
           {BUY_READY
             ? <a class="btn btn-ghost" href={BUY_BUSINESS}>Buy for business</a>
-            : <span class="btn btn-ghost btn-soon" aria-disabled="true">Coming with whereti 1.0</span>}
+            : <span class="btn btn-ghost btn-soon" aria-disabled="true">Checkout opens soon</span>}
         </div>
       </div>
     </div>
@@ -68,7 +68,7 @@ import { CONTACT, BUY_PERSONAL, BUY_BUSINESS, BUY_READY } from "../links";
     <h2>Refunds</h2>
     <p>
       Changed your mind within 14 days? Write to <a href={`mailto:${CONTACT}`}>{CONTACT}</a> with your order number and
-      you get your money back, no questions asked.
+      you get your money back, no questions asked. The rest is in the <a href="/terms/">terms of sale</a>.
     </p>
 
     <h2>Lost your key?</h2>
