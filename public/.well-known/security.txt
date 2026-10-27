@@ -1,0 +1,8 @@
+# Security contact for whereti (https://whereti.com), made by SOFTWARE HIVE S.R.L.
+# How we handle reports: https://whereti.com/security/#reporting
+Contact: mailto:contact@softwarehive.ro
+Contact: https://github.com/whereti/app/security/advisories/new
+Expires: 2027-10-27T00:00:00.000Z
+Preferred-Languages: en, ro
+Canonical: https://whereti.com/.well-known/security.txt
+Policy: https://whereti.com/security/#reporting
