@@ -20,6 +20,7 @@ import Base from "../layouts/Base.astro";
         <tr><td><code>report !draft</code></td><td>Leaves out names with the word after <code>!</code>.</td></tr>
         <tr><td><code>*.pdf</code>, <code>img_????.jpg</code></td><td>The whole name: <code>*</code> stands for any letters, <code>?</code> for exactly one.</td></tr>
         <tr><td><code>projects\whereti</code></td><td>A backslash searches the path, not only the name.</td></tr>
+        <tr><td><code>C:\Users\ana\Documents</code></td><td>A full path searches that folder; with a wildcard at the end, only those files in it and below: <code>D:\Photos\*.jpg</code>.</td></tr>
         <tr><td><code>facutra</code></td><td>A typo is forgiven: when a word of 4 letters or more finds almost nothing, names with that word one letter off show under “Close matches”, so <code>facutra</code> finds “factura”.</td></tr>
       </tbody>
     </table>
@@ -44,12 +45,12 @@ import Base from "../layouts/Base.astro";
           <td><code>dm:2025-03-01..2025-06-30</code></td>
           <td>Changed between two dates. Months and years work too: <code>dm:2025-03..2025-06</code>, <code>dm:2023..2024</code>.</td>
         </tr>
-        <tr><td><code>dm:&gt;2025-06</code></td><td>Changed after (or <code>&lt;</code> before) a date.</td></tr>
+        <tr><td><code>dm:&gt;2025-06</code></td><td>Changed after (or <code>&lt;</code> before) a date. Open ranges work too: <code>dm:2024..</code> (from 2024 on), <code>dm:..2023</code> (up to the end of 2023).</td></tr>
         <tr>
           <td><code>size:&gt;10mb</code></td>
           <td>
             By size: <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, a range
-            <code>1mb..5mb</code>, or a word: <code>empty</code>, <code>tiny</code> (under 10 KB), <code>small</code>
+            <code>1mb..5mb</code> (or open: <code>10mb..</code>, <code>..5mb</code>), or a word: <code>empty</code>, <code>tiny</code> (under 10 KB), <code>small</code>
             (to 100 KB), <code>medium</code> (to 1 MB), <code>large</code> (to 16 MB), <code>huge</code> (to 128 MB),
             <code>gigantic</code>.
           </td>
@@ -57,7 +58,7 @@ import Base from "../layouts/Base.astro";
         <tr><td><code>folder:projects</code></td><td>Only folders with that name (<code>folder:</code> alone: only folders). <code>file:</code> does the same for files.</td></tr>
         <tr><td><code>path:C:\Users</code></td><td>Only inside a folder.</td></tr>
         <tr><td><code>mine:</code></td><td>Only your own files, without programs, system and hidden files.</td></tr>
-        <tr><td><code>regex:^IMG_\d{4}</code></td><td>A regular expression on the name, for experts.</td></tr>
+        <tr><td><code>regex:^(IMG|DSC)_\d{4}</code></td><td>A regular expression on the name, for experts. A <code>|</code> inside it stays part of the expression; put it in quotes if it has a space.</td></tr>
       </tbody>
     </table>
   </div>
