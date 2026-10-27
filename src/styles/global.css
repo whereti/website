@@ -151,6 +151,8 @@ kbd {
 .wordmark .ti { background: var(--ti); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .name-note { margin: 14px 0 0; font-size: 13.5px; color: var(--muted); }
 .name-note .wordmark { font-weight: 650; color: var(--text); letter-spacing: -0.02em; }
+.name-note b { font-weight: 600; color: var(--text); }
+.name-note .ti-letter { font-weight: 700; background: var(--ti); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .brand img { width: 26px; height: 26px; border-radius: 7px; }
 .nav { display: none; gap: 2px; margin-left: 14px; }
 .nav a { color: var(--muted); padding: 5px 10px; border-radius: 8px; font-size: 14px; font-weight: 500; }

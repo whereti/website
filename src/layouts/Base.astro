@@ -35,7 +35,7 @@ if (prose) {
   });
 }
 const withToc = prose && toc && sections.length >= 3;
-const fullTitle = title ? `${title} · whereti` : "whereti: find any file on your PC as you type";
+const fullTitle = title ? `${title} · whereti` : "whereti: find any file by name, text or image";
 const canonical = new URL(Astro.url.pathname, SITE).href;
 
 const jsonLd = {
