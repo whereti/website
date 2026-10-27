@@ -54,10 +54,11 @@ jobs:
           for hook in "${HOOKS[@]}"; do
             hook=$(echo "$hook" | xargs)
             [ -z "$hook" ] && continue
-            echo "Triggering deploy hook"
-            if [ -n "$COOLIFY_API_TOKEN" ]; then
-              curl -fsS -X GET "$hook" -H "Authorization: Bearer $COOLIFY_API_TOKEN"
-            else
-              curl -fsS -X GET "$hook"
-            fi
+            # the path only: the query holds the app's uuid
+            echo "Triggering deploy hook: ${hook%%\?*}"
+            auth=()
+            [ -n "$COOLIFY_API_TOKEN" ] && auth=(-H "Authorization: Bearer $COOLIFY_API_TOKEN")
+            code=$(curl -sS -o response.txt -w '%{http_code}' -X GET "${auth[@]}" "$hook")
+            echo "HTTP $code: $(head -c 300 response.txt)"
+            [ "$code" -lt 400 ] || exit 1
           done
