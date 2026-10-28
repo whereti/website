@@ -6,7 +6,7 @@
 export const SITE = "https://whereti.com";
 export const REPO = "https://github.com/whereti/app";
 
-export const LATEST_VERSION = "0.9.4";
+export const LATEST_VERSION = "0.9.5";
 export const LATEST_TAG = `v${LATEST_VERSION}`;
 export const RELEASE_NOTES = `${REPO}/releases/tag/${LATEST_TAG}`;
 export const ALL_RELEASES = `${REPO}/releases`;
@@ -14,7 +14,7 @@ export const LATEST_INSTALLER_NAME = `whereti-setup-${LATEST_VERSION}.exe`;
 // by tag, not releases/latest: GitHub never counts a pre-release (0.9.x) as latest
 export const LATEST_INSTALLER = `${REPO}/releases/download/${LATEST_TAG}/${LATEST_INSTALLER_NAME}`;
 /** From scripts\package.ps1 -Release output; empty until the first release. */
-export const INSTALLER_SHA256 = "30f04c05abf52acb1284c1bbb318c4d502a4e99715712f2fe1e70f1a8ee22f56";
+export const INSTALLER_SHA256 = "bc3f77c701a9c7e47cbb346afd83dd3963cd81318fcc4308b368884f1fa28629";
 export const INSTALLER_SIZE = "31 MB";
 
 export const CONTACT = "contact@softwarehive.ro";
