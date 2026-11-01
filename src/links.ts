@@ -6,15 +6,15 @@
 export const SITE = "https://whereti.com";
 export const REPO = "https://github.com/whereti/app";
 
-export const LATEST_VERSION = "0.9.5";
+export const LATEST_VERSION = "1.0.0";
 export const LATEST_TAG = `v${LATEST_VERSION}`;
 export const RELEASE_NOTES = `${REPO}/releases/tag/${LATEST_TAG}`;
 export const ALL_RELEASES = `${REPO}/releases`;
 export const LATEST_INSTALLER_NAME = `whereti-setup-${LATEST_VERSION}.exe`;
-// by tag, not releases/latest: GitHub never counts a pre-release (0.9.x) as latest
+// by tag, not releases/latest: the link names the exact file the SHA-256 is for
 export const LATEST_INSTALLER = `${REPO}/releases/download/${LATEST_TAG}/${LATEST_INSTALLER_NAME}`;
 /** From scripts\package.ps1 -Release output; empty until the first release. */
-export const INSTALLER_SHA256 = "bc3f77c701a9c7e47cbb346afd83dd3963cd81318fcc4308b368884f1fa28629";
+export const INSTALLER_SHA256 = "f8587c5a57b03670c3efcd1bf3d42086ee830f5aecd4427b2df0db068f680360";
 export const INSTALLER_SIZE = "31 MB";
 
 export const CONTACT = "contact@softwarehive.ro";
