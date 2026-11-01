@@ -22,10 +22,11 @@ export const SECURITY = "contact@softwarehive.ro";
 export const COMPANY_EMAIL = "contact@softwarehive.ro";
 export const SILENTSILO = "https://silentsilo.com";
 
-/** Supporter licenses on Lemon Squeezy (merchant of record). Fill in the two
- *  product links before the site goes live. */
-export const BUY_PERSONAL = "https://whereti.lemonsqueezy.com/buy/TODO-personal";
-export const BUY_BUSINESS = "https://whereti.lemonsqueezy.com/buy/TODO-business";
+/** Supporter licenses on Lemon Squeezy (merchant of record): two products, one
+ *  price each. Business takes `?quantity=<PCs>`; the buyer cannot change it at
+ *  checkout, so the supporter page asks for it first. */
+export const BUY_PERSONAL = "https://whereti.lemonsqueezy.com/checkout/buy/ff4058f3-60ea-495b-8ea3-3a8a3f92d2ff";
+export const BUY_BUSINESS = "https://whereti.lemonsqueezy.com/checkout/buy/b3ce78fa-204d-4315-b0cd-fee1c49d5408";
 /** Until both are real, the buy buttons show "Checkout opens soon". */
 export const BUY_READY = !BUY_PERSONAL.includes("TODO") && !BUY_BUSINESS.includes("TODO");
 

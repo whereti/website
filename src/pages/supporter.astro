@@ -39,7 +39,10 @@ import { CONTACT, BUY_PERSONAL, BUY_BUSINESS, BUY_READY } from "../links";
             <li><Icon name="check" />As many PCs as you need</li>
           </ul>
           {BUY_READY
-            ? <a class="btn btn-ghost" href={BUY_BUSINESS}>Buy for business</a>
+            ? <div class="buy-row">
+                <label class="pcs">PCs <input id="pcs" type="number" min="1" max="10000" step="1" value="1" inputmode="numeric" /></label>
+                <a class="btn btn-ghost" id="buy-business" href={`${BUY_BUSINESS}?quantity=1`} data-base={BUY_BUSINESS}>Buy for $39</a>
+              </div>
             : <span class="btn btn-ghost btn-soon" aria-disabled="true">Checkout opens soon</span>}
         </div>
       </div>
@@ -84,5 +87,25 @@ import { CONTACT, BUY_PERSONAL, BUY_BUSINESS, BUY_READY } from "../links";
     </ul>
     </div>
   </div>
+  {BUY_READY && (
+    <script is:inline>
+      // The PC count goes into the checkout link: Lemon Squeezy's checkout
+      // cannot change the quantity, and the license covers that many PCs.
+      (() => {
+        const pcs = document.getElementById("pcs");
+        const buy = document.getElementById("buy-business");
+        if (!pcs || !buy) return;
+        const count = () => Math.min(10000, Math.max(1, Math.floor(Number(pcs.value) || 1)));
+        const update = () => {
+          const n = count();
+          buy.href = `${buy.dataset.base}?quantity=${n}`;
+          buy.textContent = `Buy for $${(39 * n).toLocaleString("en-US")}`;
+        };
+        pcs.addEventListener("input", update);
+        pcs.addEventListener("change", () => { pcs.value = String(count()); update(); });
+        update();
+      })();
+    </script>
+  )}
 </Base>
 

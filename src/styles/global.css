@@ -511,6 +511,11 @@ mark { background: rgba(255, 196, 0, 0.38); color: inherit; border-radius: 3px; 
 .checks li { display: flex; gap: 8px; align-items: center; }
 .checks svg { width: 15px; height: 15px; color: var(--ok); flex: none; }
 .plan .btn, .plan .pill { align-self: flex-start; margin-top: auto; }
+.plan .buy-row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: auto; }
+.plan .buy-row .btn { margin-top: 0; }
+.pcs { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 14px; }
+.pcs input { width: 76px; padding: 9px 10px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font: inherit; font-size: 15px; }
+.pcs input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
 /* small page head (supporter, 404) */
 .page-head { text-align: center; padding: 40px 0 20px; }
