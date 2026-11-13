@@ -62,6 +62,10 @@ import { CONTACT, REPO } from "../links";
         <li>
           <strong>Network folders</strong> you add, by name. See <a href="#network">the network question</a>.
         </li>
+        <li>
+          <strong>Google Drive</strong>'s drive, by name, with nothing to set up. See
+          <a href="#google-drive">the Google Drive question</a>.
+        </li>
       </ul>
       <p>
         Some folders are left out on purpose, because nobody looks for what is in them: Windows itself, what applications
@@ -273,6 +277,29 @@ import { CONTACT, REPO } from "../links";
         drive like <code>Z:\</code>. whereti looks through it once an hour, as you (the background service cannot see
         mapped drives), and its files show up under “On the network”. Only names are searched there, not the text
         inside.
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="google-drive">
+    <summary>Does it search Google Drive?</summary>
+    <div class="a">
+      <p>
+        Yes, the files Google Drive for desktop puts on your PC. whereti does not sign in to your Google account and
+        searches nothing online.
+      </p>
+      <p>
+        <strong>The G: drive</strong> (“Stream files”, Google Drive's usual setting) is seen only by your Windows account,
+        not by the background service. whereti finds it by itself, looks through it once an hour, as you, and its files
+        show up by name under “Google Drive (G:)”. The text inside them is not read: most of them are only in the cloud,
+        and reading them would download them. Other drives that only your account sees are looked through the same way.
+      </p>
+      <p>
+        <strong>“Mirror files”</strong> keeps your Drive as ordinary files in a folder on your disk, usually
+        <code>C:\Users\&lt;you&gt;\My Drive</code>. whereti finds them by name at once, like any other file, and to search
+        the text inside too, add that folder in Settings, Search, “Inside documents”.
+      </p>
+      <p>
+        Google Docs, Sheets and Slides stay online at Google: on your PC they are only links, found by name.
       </p>
     </div>
   </details>
