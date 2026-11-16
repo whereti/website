@@ -6,7 +6,7 @@
 export const SITE = "https://whereti.com";
 export const REPO = "https://github.com/whereti/app";
 
-export const LATEST_VERSION = "1.0.4";
+export const LATEST_VERSION = "1.1.0";
 export const LATEST_TAG = `v${LATEST_VERSION}`;
 export const RELEASE_NOTES = `${REPO}/releases/tag/${LATEST_TAG}`;
 export const ALL_RELEASES = `${REPO}/releases`;
@@ -14,7 +14,7 @@ export const LATEST_INSTALLER_NAME = `whereti-setup-${LATEST_VERSION}.exe`;
 // by tag, not releases/latest: the link names the exact file the SHA-256 is for
 export const LATEST_INSTALLER = `${REPO}/releases/download/${LATEST_TAG}/${LATEST_INSTALLER_NAME}`;
 /** From scripts\package.ps1 -Release output; empty until the first release. */
-export const INSTALLER_SHA256 = "392a9e2538315624b2f408ac0f221dc7ab0005cb17d6d24cbf7aa81b34c1878d";
+export const INSTALLER_SHA256 = "0c96922fdd035cdc658da32faa6b4b6ed4e01bfc5c674b7e92704a5cc4f119bc";
 export const INSTALLER_SIZE = "35 MB";
 
 export const CONTACT = "contact@softwarehive.ro";
