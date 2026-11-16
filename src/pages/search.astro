@@ -15,9 +15,11 @@ import Base from "../layouts/Base.astro";
       <thead><tr><th>Type</th><th>Finds</th></tr></thead>
       <tbody>
         <tr><td><code>report 2025</code></td><td>Names with every word, anywhere and in any order. Capitals and accents do not matter: <code>masina</code> finds “Mașină”.</td></tr>
-        <tr><td><code>"annual report"</code></td><td>These words together, exactly as typed.</td></tr>
+        <tr><td><code>contract smith</code></td><td>With two words or more, one may be the name of a folder above the file: this finds <code>Clients\Smith\contract.docx</code>, after the names that hold every word. At least one word must be in the name, so a single word still finds names only.</td></tr>
+        <tr><td><code>"annual report"</code></td><td>These words together, in this order.</td></tr>
+        <tr><td><code>annual_report</code></td><td>A dash, an underscore and a space are the same: <code>annual_report</code>, <code>annual-report</code> and <code>"annual report"</code> all find “annual-report.pdf”. A dot is not: <code>1.0.3</code> stays a version.</td></tr>
         <tr><td><code>invoice | receipt</code></td><td>One or the other.</td></tr>
-        <tr><td><code>report !draft</code></td><td>Leaves out names with the word after <code>!</code>.</td></tr>
+        <tr><td><code>report !draft</code></td><td>Leaves out names with the word after <code>!</code>, or after a dash, as on the web: <code>report -draft</code>.</td></tr>
         <tr><td><code>*.pdf</code>, <code>img_????.jpg</code></td><td>The whole name: <code>*</code> stands for any letters, <code>?</code> for exactly one.</td></tr>
         <tr><td><code>projects\whereti</code></td><td>A backslash searches the path, not only the name.</td></tr>
         <tr><td><code>C:\Users\ana\Documents</code></td><td>A full path searches that folder; with a wildcard at the end, only those files in it and below: <code>D:\Photos\*.jpg</code>.</td></tr>
@@ -38,7 +40,9 @@ import Base from "../layouts/Base.astro";
             Changed on a day or in a period: <code>today</code>, <code>yesterday</code>, <code>thisweek</code>,
             <code>lastweek</code>, <code>thismonth</code>, <code>lastmonth</code>, <code>thisyear</code>,
             <code>lastyear</code>, a year <code>2025</code>, a month <code>2025-03</code>, a day <code>2025-03-15</code>
-            (or <code>15.03.2025</code>).
+            (or <code>15.03.2025</code>). The words work in all 8 languages of whereti, written together or with a dash:
+            <code>dm:azi</code>, <code>dm:gestern</code>, <code>dm:hier</code>, <code>dm:ayer</code>,
+            <code>dm:letzte-woche</code>, <code>dm:luna-trecută</code>.
           </td>
         </tr>
         <tr>
@@ -66,7 +70,10 @@ import Base from "../layouts/Base.astro";
   <h2 id="inside">Inside files and photos</h2>
   <p>
     Plain words also look inside documents: results whose text has every word come under the names, with the line where
-    they appear. To search only inside, or only photos:
+    they appear. PDF, Office and OpenDocument files, e-mails and e-books are read on every drive; text files, code,
+    web pages, archives and screenshots only in Desktop, Documents and Downloads, and in the folders you add in
+    Settings, Search, “Text files, code and screenshots”. When the preview shows text that was not read, it says so.
+    To search only inside, or only photos:
   </p>
   <div class="table-wrap">
     <table>
@@ -124,6 +131,11 @@ import Base from "../layouts/Base.astro";
     <code>contract !draft path:D:\Company size:&lt;5mb</code>. The tabs above the results (Documents, Images, Audio, Video,
     Folders) add their own filter on top; Images shows the results as a grid of thumbnails.
   </p>
+  <p>
+    A word that looks like a command but is not one (<code>hour:12</code>), or a command with a value it does not take
+    (<code>size:big</code>), is searched as plain text, and whereti says so under the search box. When nothing is found,
+    whereti says what it searched: how many file names, and the text of how many documents.
+  </p>
 
   <h2 id="history">Past searches</h2>
   <p>
@@ -157,7 +169,7 @@ import Base from "../layouts/Base.astro";
   <h2 id="order">What comes first</h2>
   <p>whereti puts the file you most likely want on top, in this order:</p>
   <ol>
-    <li><strong>How well the name matches:</strong> the exact name (with or without its extension), then names that start with the word, then a word inside the name, then anywhere.</li>
+    <li><strong>How well the name matches:</strong> the exact name (with or without its extension), then names that start with the word, then a word inside the name, then anywhere. Every word typed counts, the first one most.</li>
     <li>
       <strong>Then, among names that match as well:</strong> your own folders (Desktop, Documents, Downloads, Pictures…)
       before program and system folders; documents, photos, music and videos before files programs keep for
@@ -175,5 +187,9 @@ import Base from "../layouts/Base.astro";
   <p>
     The last two are learnt on your PC and never leave it. Each has a switch in Settings, Search; turning it off forgets
     what was learnt. The same file in several places shows once, with “+2 copies”.
+  </p>
+  <p>
+    The menu above the results changes the order of a search: best match (all of the above), newest first, largest
+    first, or by name.
   </p>
 </Base>
