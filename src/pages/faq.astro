@@ -33,6 +33,8 @@ import { CONTACT, REPO } from "../links";
         <li>
           <strong>Names</strong> of all files and folders on your drives: internal and external disks, USB sticks and memory
           cards. A stick shows up in the results a few seconds after you plug it in, and leaves when you take it out.
+          A drive connected for the first time is searched once you say so, and a backup drive can be left out: see
+          <a href="#drives">the drives question</a>.
         </li>
         <li>
           <strong>Contents</strong> of PDF, Office and OpenDocument files, e-mails and e-books on every drive; of text
@@ -254,6 +256,16 @@ import { CONTACT, REPO } from "../links";
       </p>
     </div>
   </details>
+  <details class="qa" id="folder">
+    <summary>How do I open the folder a file is in?</summary>
+    <div class="a">
+      <p>
+        Select the result and press <kbd>Ctrl</kbd>+<kbd>Enter</kbd>: Explorer opens its folder, with the file selected,
+        so you see what is around it. Right-click a result for the usual Explorer menu. To find folders themselves, use
+        the Folders tab.
+      </p>
+    </div>
+  </details>
   <details class="qa" id="files">
     <summary>Can I rename, delete or copy files from whereti?</summary>
     <div class="a">
@@ -297,11 +309,27 @@ import { CONTACT, REPO } from "../links";
       </p>
       <p>
         <strong>“Mirror files”</strong> keeps your Drive as ordinary files in a folder on your disk, usually
-        <code>C:\Users\&lt;you&gt;\My Drive</code>. whereti finds them by name at once, like any other file, and to search
-        the text inside too, add that folder in Settings, Search, “Inside documents”.
+        <code>C:\Users\&lt;you&gt;\My Drive</code>. whereti finds them by name at once, like any other file, and reads
+        the text of the PDF and Office documents in it; for text files and code too, add that folder in Settings, Search,
+        “Text files, code and screenshots”.
       </p>
       <p>
         Google Docs, Sheets and Slides stay online at Google: on your PC they are only links, found by name.
+      </p>
+    </div>
+  </details>
+  <details class="qa" id="drives">
+    <summary>Can I leave out an external drive, like a backup disk?</summary>
+    <div class="a">
+      <p>
+        Yes. In Settings, Search, “Drives”, turn off the drives you do not want searched. A drive left out leaves the
+        results, and the text of its documents is not read. whereti knows each drive by itself, not by its letter, so a
+        backup disk stays out each time you connect it, even as another letter.
+      </p>
+      <p>
+        A drive connected for the first time is not read until you choose: the search window asks once, “Search it” or
+        “Leave it out”. The drives that were there when you installed whereti are searched. The drive Windows runs from
+        is always searched.
       </p>
     </div>
   </details>
