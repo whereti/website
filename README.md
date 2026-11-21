@@ -13,7 +13,6 @@ export, served by nginx. Same setup as silentsilo.com (Software Hive S.R.L.).
 | `/faq/` | Short answers, grouped and folded |
 | `/privacy/` | What the app and the site keep (nothing, in practice), GDPR |
 | `/security/` | What gets installed, how it is kept safe, checking the download, reporting |
-| `/supporter/` | The supporter license |
 | `/who/` | Who makes whereti |
 | `/legal/` | Company details (imprint) |
 | `404` | Not found, with links |
@@ -38,9 +37,7 @@ All download data is in **`src/links.ts`**, edited by hand:
 1. Publish the GitHub release with `whereti-setup-<version>.exe` (built and signed
    by `scripts\package.ps1 -Release` in the whereti repository).
 2. In `src/links.ts`: set `LATEST_VERSION`, `INSTALLER_SIZE` and
-   `INSTALLER_SHA256` (printed by the package script). Before the first launch,
-   also fill in `BUY_PERSONAL` and `BUY_BUSINESS`. The site always offers the
-   download: it goes live together with the first release.
+   `INSTALLER_SHA256` (printed by the package script).
 3. Push to `main`: the workflow builds the image and redeploys.
 
 ## Links between the pieces
