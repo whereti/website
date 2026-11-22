@@ -31,13 +31,14 @@ import { SECURITY, REPO, INSTALLER_SHA256, LATEST_INSTALLER_NAME } from "../link
     <li>
       <strong>Almost no network.</strong> The document reader and the installer never connect to anything. The service
       only downloads the photo or meaning model, once each, if you turn them on, and checks them by SHA-256. The search
-      window asks for updates at most once a day, sending only its version number, and reads the names in
+      window reads a public file on whereti.com at most once a day, sending nothing, and reads the names in
       network folders only if you add some.
     </li>
     <li>
-      <strong>Updates are checked on your PC.</strong> An update is installed only if the installer carries a valid
-      signature from Software Hive S.R.L. and matches the checksum published with the release. Someone who took over the
-      update server could stop updates, but could not make whereti install anything.
+      <strong>whereti installs nothing by itself.</strong> It only says that a new version is out, and its button
+      always opens the download on whereti.com: the address is written in the app, not taken from the file it reads.
+      Someone who changed that file could at most show a wrong version number; they could not send you elsewhere or make
+      whereti download anything. You run the signed installer yourself.
     </li>
     <li>
       <strong>The index is locked.</strong> It lives in <code>%ProgramData%\whereti</code>, readable only by Windows and

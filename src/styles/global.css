@@ -369,6 +369,11 @@ mark { background: rgba(255, 196, 0, 0.38); color: inherit; border-radius: 3px; 
 .dl-card .actions { display: flex; flex-wrap: wrap; gap: 8px; grid-column: 1 / -1; }
 @media (min-width: 680px) { .dl-card .actions { grid-column: auto; } }
 .dl-sec .note { margin-top: 12px; }
+.dl-new { margin-top: 12px; padding: 18px 22px; border-radius: 18px; border: 1px solid var(--border); background: var(--surface); }
+.dl-new h3 { font-size: 1rem; margin: 0 0 6px; }
+.dl-new ul { margin: 0 0 8px; padding-left: 20px; color: var(--muted); font-size: 14.5px; display: grid; gap: 4px; }
+.dl-new .meta { margin: 0; color: var(--dim); font-size: 13.5px; }
+.dl-new .meta a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 .dl-more { display: grid; gap: 12px; margin-top: 12px; }
 @media (min-width: 900px) { .dl-more { grid-template-columns: 1.15fr 1fr 1fr; } }
 .dl-foot { margin: 16px 0 0; color: var(--dim); font-size: 13.5px; }

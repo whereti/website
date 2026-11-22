@@ -16,6 +16,12 @@ export const LATEST_INSTALLER = `${REPO}/releases/download/${LATEST_TAG}/${LATES
 /** From scripts\package.ps1 -Release output; empty until the first release. */
 export const INSTALLER_SHA256 = "6d0d7d2fa39b3d0e55ccbf7270d4c4a9fb9368cb9a162c0cacc80490cbe2bda1";
 export const INSTALLER_SIZE = "35 MB";
+/** What is new in LATEST_VERSION, a few short lines: shown beside the
+ *  download, where the app's note about a new version leads. */
+export const WHATS_NEW: string[] = [
+  "No more automatic updates: for security, among other reasons, whereti now only tells you when a new version is out, and you download it here. It downloads and installs nothing by itself.",
+  "After an update, whereti is back next to the clock by itself.",
+];
 
 export const CONTACT = "contact@softwarehive.ro";
 export const SECURITY = "contact@softwarehive.ro";

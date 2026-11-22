@@ -364,9 +364,12 @@ import { CONTACT, REPO } from "../links";
     <summary>How do updates work?</summary>
     <div class="a">
     <p>
-        When a new version exists, whereti says so at the bottom of its window and in Settings, About. Nothing is downloaded
-        until you choose Install update. whereti then fetches the installer from its GitHub releases, checks that it is signed
-        by Software Hive S.R.L. and has not been changed, and installs it after Windows asks for your permission.
+        Once a day whereti looks at whereti.com for a newer version. When there is one, it says so above the results and
+        in Settings, About; “See what's new” opens the <a href="/#download">download</a> here, and “In a week” puts it off.
+        Since 1.3 whereti downloads and installs nothing by itself, for security among other reasons: a program that can
+        replace itself from the internet is one more way in. Run the new installer over the version you have. It keeps your
+        settings and index, and whereti is back next to the clock. Versions before 1.3 still download the update
+        themselves, after you choose Install update.
       </p>
     </div>
   </details>
@@ -386,8 +389,8 @@ import { CONTACT, REPO } from "../links";
     <div class="a">
     <p>
         Your files, their names, your photos and your searches never leave your PC. whereti makes two kinds of request, and
-        sends nothing about you in either: the update check, at most once a day, which asks releases.whereti.com whether a
-        newer version exists and sends only its own version number (you can turn it off in Settings, General); and, only if
+        sends nothing about you in either: the update check, at most once a day, which reads a public file on whereti.com
+        and sends nothing at all, not even its version (you can turn it off in Settings, General); and, only if
         you turn on recognizing objects and animals in photos or search by meaning, one download of each model from
         Hugging Face. See the
         <a href="/privacy/">privacy page</a> for every detail.

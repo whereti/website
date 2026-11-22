@@ -6,7 +6,7 @@ import DownloadButton from "../components/DownloadButton.astro";
 import Icon from "../components/Icon.astro";
 import {
   REPO, LATEST_VERSION, INSTALLER_SIZE, LATEST_INSTALLER, LATEST_INSTALLER_NAME, INSTALLER_SHA256,
-  RELEASE_NOTES, ALL_RELEASES,
+  RELEASE_NOTES, ALL_RELEASES, WHATS_NEW,
 } from "../links";
 ---
 <Base description="whereti finds any file on your Windows PC as you type: by its name, the text inside it, or what a photo shows. Free, open source, and your files never leave your computer.">
@@ -227,6 +227,14 @@ import {
         </div>
       </div>
 
+      {WHATS_NEW.length > 0 && (
+        <div class="dl-new" id="whats-new">
+          <h3>New in {LATEST_VERSION}</h3>
+          <ul>{WHATS_NEW.map((line) => <li>{line}</li>)}</ul>
+          <p class="meta">Every change: <a href={RELEASE_NOTES}>release notes</a>. Run the installer over the version you have: your settings and index stay as they are.</p>
+        </div>
+      )}
+
       <div class="dl-more">
         <div class="card">
           <h3>Install in three steps</h3>
@@ -250,8 +258,8 @@ import {
         <div class="card">
           <h3><Icon name="bolt" />Update or remove</h3>
           <p>
-            whereti tells you when a new version exists and installs it when you choose Install update. A new installer
-            run by hand replaces the old version and keeps your settings.
+            whereti tells you when a new version is out and brings you here. Run the new installer: it replaces the
+            old version, keeps your settings and index, and whereti is back next to the clock.
           </p>
           <p>
             To remove it, use Settings, Apps in Windows. That removes the programs, the service, the index and the

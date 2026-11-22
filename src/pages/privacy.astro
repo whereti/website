@@ -8,28 +8,29 @@ import { CONTACT, COMPANY_EMAIL } from "../links";
     Your files, their names and your searches never leave your PC, and this website keeps no record of you. Below is
     every request whereti can make, and exactly what it carries.
   </p>
-  <p class="updated">Last changed on 21 November 2026: the list of drives; nothing is sold any more.</p>
+  <p class="updated">Last changed on 22 November 2026: the update check reads a file on this site and sends nothing.</p>
 
   <h2 id="app">The app</h2>
   <p>
     There is no account, no telemetry and no crash reporting. The document reader and the installer make no network
-    requests at all. The search window makes at most two, both about updates, and the background service at most two,
+    requests at all. The search window makes one, about updates, and the background service at most two,
     each once and only if you ask for it:
   </p>
   <ul>
     <li>
-      <strong>The update check, at most once a day.</strong> whereti asks
-      <code>https://releases.whereti.com/windows/x86_64/0.1.0</code> (its own architecture and version) whether a newer
-      version exists. Nothing else is sent: no identifier, no cookie, nothing about your files. The time of each check is
-      saved before it goes out, so restarting the PC or the app never makes a second one that day. The server records one
-      line per check: the platform, the version that asked, and whether an update was offered. No IP address. Its code is
-      public in the <a href="https://github.com/whereti/releases">whereti.releases</a> repository. You can turn the check
-      off in Settings, General; then whereti sends nothing at all.
+      <strong>The update check, at most once a day.</strong> whereti reads <code>https://whereti.com/latest.json</code>,
+      a public file with the latest version number. Nothing is sent: not its version, no identifier, no cookie, nothing
+      about your files, and this website keeps no log of it. The time of each check is saved before it goes out, so
+      restarting the PC or the app never makes a second one that day. whereti downloads nothing else: a new version is
+      downloaded by you, from this site. You can turn the check off in Settings, General; then whereti sends nothing at
+      all.
     </li>
     <li>
-      <strong>The update download, only when you choose Install update.</strong> The installer comes from whereti's
-      GitHub releases, so GitHub sees that download like any other. whereti installs it only if it is signed by Software
-      Hive S.R.L. and matches the checksum of the release.
+      <strong>Versions before 1.3</strong> ask <code>https://releases.whereti.com/windows/x86_64/1.2.0</code> (their
+      architecture and version) instead, which records one line per check (the platform, the version that asked,
+      whether an update was offered; no IP address), and download the installer from whereti's GitHub releases when you
+      choose Install update, checking its signature and checksum. That server stays on for a few months, for those who
+      have not updated; its code is in the <a href="https://github.com/whereti/releases">whereti.releases</a> repository.
     </li>
     <li>
       <strong>The photo model, once, only if you turn on recognizing objects and animals in photos.</strong> The
