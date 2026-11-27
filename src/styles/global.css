@@ -228,6 +228,11 @@ kbd {
 .hero2 h1 { font-size: clamp(2.5rem, 5.8vw, 4.2rem); line-height: 1; letter-spacing: -0.05em; font-weight: 680; margin-bottom: 16px; }
 .hero2 .lead { font-size: clamp(16px, 1.5vw, 18px); color: var(--muted); max-width: 500px; margin: 0 auto 24px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+/* "Direct download from GitHub", small, under a download button */
+.dl-direct { margin: 10px 0 0; font-size: 13px; }
+.dl-direct a { color: var(--dim); text-decoration: underline; text-underline-offset: 3px; }
+.dl-direct a:hover { color: var(--accent); }
+.dl-direct[hidden] { display: none; }
 @media (min-width: 1000px) { .hero2 .lead { margin-left: 0; } .hero2 .hero-actions { justify-content: flex-start; } }
 .spark { width: 6px; height: 6px; border-radius: 50%; background: var(--pin); box-shadow: 0 0 0 3px color-mix(in srgb, var(--pin) 25%, transparent); }
 .ticks { list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-wrap: wrap; gap: 6px 16px; justify-content: center; color: var(--muted); font-size: 13.5px; }
@@ -366,8 +371,9 @@ mark { background: rgba(255, 196, 0, 0.38); color: inherit; border-radius: 3px; 
 .dl-card h3 { font-size: 1.15rem; margin: 0 0 2px; }
 .dl-card .meta { color: var(--dim); font-size: 13.5px; }
 .dl-card .meta a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
-.dl-card .actions { display: flex; flex-wrap: wrap; gap: 8px; grid-column: 1 / -1; }
-@media (min-width: 680px) { .dl-card .actions { grid-column: auto; } }
+.dl-card .actions { display: flex; flex-direction: column; align-items: flex-start; gap: 0; grid-column: 1 / -1; }
+@media (min-width: 680px) { .dl-card .actions { grid-column: auto; align-items: flex-end; } }
+.dl-card .dl-direct { margin-top: 8px; }
 .dl-sec .note { margin-top: 12px; }
 .dl-new { margin-top: 12px; padding: 18px 22px; border-radius: 18px; border: 1px solid var(--border); background: var(--surface); }
 .dl-new h3 { font-size: 1rem; margin: 0 0 6px; }
@@ -413,6 +419,8 @@ mark { background: rgba(255, 196, 0, 0.38); color: inherit; border-radius: 3px; 
 .cta2-card h2 { color: #fff; }
 .cta2-card p { color: rgba(255, 255, 255, 0.85); max-width: 420px; margin: 0 0 18px; }
 .cta2-card .btn-primary { background: #fff; color: #2b2fd6; box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.5); margin-top: auto; }
+.cta2-card .dl-direct a { color: rgba(255, 255, 255, 0.8); }
+.cta2-card .dl-direct a:hover { color: #fff; }
 
 /* ------------------------------------------------------------ cards */
 .grid { display: grid; gap: 12px; grid-template-columns: 1fr; }

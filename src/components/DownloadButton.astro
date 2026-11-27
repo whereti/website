@@ -1,10 +1,10 @@
 ---
-// The main button: the installer itself. whereti is for Windows only: on
-// other systems the header's script sends the button to the download
-// section, which says so, instead of handing a Mac or a phone an .exe.
+// The main button: whereti's page on dAppCDN (the same signed installer as
+// GitHub's). whereti is for Windows only: on other systems the header's
+// script sends the button to the download section, which says so.
 import Icon from "./Icon.astro";
 import { DOWNLOAD } from "../links";
 ---
 <a class="btn btn-primary dl-btn" href={DOWNLOAD} data-windows-only>
-  <Icon name="windows" />Download for Windows
+  <Icon name="download" />Download from dAppCDN
 </a>

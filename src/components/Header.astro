@@ -51,6 +51,7 @@ const path = Astro.url.pathname;
   // download section instead of an .exe.
   if (!/Windows/i.test(navigator.userAgent)) {
     document.querySelectorAll<HTMLAnchorElement>("a[data-windows-only]").forEach((a) => (a.href = "/#download"));
+    document.querySelectorAll<HTMLElement>("[data-windows-hide]").forEach((e) => (e.hidden = true));
   }
 
   const header = document.querySelector<HTMLElement>(".site-header")!;

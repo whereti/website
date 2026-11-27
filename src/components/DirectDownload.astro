@@ -1,0 +1,11 @@
+---
+// Under a download button: the same installer, straight from the GitHub
+// release. `windowsOnly`: hidden on other systems by the header's script,
+// like the button it is under (an .exe is of no use there).
+import { LATEST_INSTALLER } from "../links";
+interface Props { windowsOnly?: boolean }
+const { windowsOnly = true } = Astro.props;
+---
+<p class="dl-direct" data-windows-hide={windowsOnly ? "" : undefined}>
+  <a href={LATEST_INSTALLER}>Direct download from GitHub</a>
+</p>

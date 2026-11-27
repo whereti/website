@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import { SECURITY, REPO, INSTALLER_SHA256, LATEST_INSTALLER_NAME } from "../links";
+import { SECURITY, REPO, INSTALLER_SHA256, LATEST_INSTALLER_NAME, DAPPCDN } from "../links";
 ---
 <Base title="Security" description="What whereti installs, what each part may do, how to check the installer, and how to report a problem." prose>
   <h1>Security</h1>
@@ -75,7 +75,10 @@ import { SECURITY, REPO, INSTALLER_SHA256, LATEST_INSTALLER_NAME } from "../link
       <span class="hash">{INSTALLER_SHA256}</span>
     </p>
   )}
-  <p>Only download whereti from whereti.com or from <a href={`${REPO}/releases`}>its GitHub releases</a>.</p>
+  <p>
+    Only download whereti through whereti.com: from <a href={DAPPCDN}>its page on dAppCDN</a> or from
+    <a href={`${REPO}/releases`}>its GitHub releases</a>. Both carry the same signed installer.
+  </p>
 
   <h2 id="limits">What this does not protect against</h2>
   <ul>

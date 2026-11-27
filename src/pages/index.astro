@@ -3,10 +3,11 @@ import Wordmark from "../components/Wordmark.astro";
 import Base from "../layouts/Base.astro";
 import AppWindow from "../components/AppWindow.astro";
 import DownloadButton from "../components/DownloadButton.astro";
+import DirectDownload from "../components/DirectDownload.astro";
 import Icon from "../components/Icon.astro";
 import {
   REPO, LATEST_VERSION, INSTALLER_SIZE, LATEST_INSTALLER, LATEST_INSTALLER_NAME, INSTALLER_SHA256,
-  RELEASE_NOTES, ALL_RELEASES, WHATS_NEW,
+  RELEASE_NOTES, ALL_RELEASES, WHATS_NEW, DAPPCDN,
 } from "../links";
 ---
 <Base description="whereti finds any file on your Windows PC as you type: by its name, the text inside it, or what a photo shows. Free, open source, and your files never leave your computer.">
@@ -24,6 +25,7 @@ import {
           <DownloadButton />
           <a class="btn btn-ghost" href="#features">What it does</a>
         </div>
+        <DirectDownload />
         <ul class="ticks">
           <li><Icon name="check" />No account</li>
           <li><Icon name="check" />No tracking</li>
@@ -223,7 +225,8 @@ import {
           </div>
         </div>
         <div class="actions">
-          <a class="btn btn-primary" href={LATEST_INSTALLER}><Icon name="download" />Download</a>
+          <a class="btn btn-primary" href={DAPPCDN}><Icon name="download" />Download from dAppCDN</a>
+          <DirectDownload windowsOnly={false} />
         </div>
       </div>
 
@@ -293,6 +296,7 @@ import {
         <h2>Stop looking for files.</h2>
         <p>Install whereti, press Ctrl+Shift+Space, type the first word that comes to mind.</p>
         <DownloadButton />
+        <DirectDownload />
       </div>
     </div>
   </section>

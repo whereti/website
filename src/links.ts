@@ -28,7 +28,11 @@ export const SECURITY = "contact@softwarehive.ro";
 export const COMPANY_EMAIL = "contact@softwarehive.ro";
 export const SILENTSILO = "https://silentsilo.com";
 
-/** Where the download button goes: the installer itself. */
-export const DOWNLOAD = LATEST_INSTALLER;
+/** whereti on dAppCDN, the author's CDN: the same signed installer as the
+ *  GitHub release, on a page with its versions. */
+export const DAPPCDN = "https://dappcdn.com/download/utilities/whereti";
+/** Where the download buttons go: dAppCDN; "Direct download from GitHub"
+ *  under them gives LATEST_INSTALLER itself. */
+export const DOWNLOAD = DAPPCDN;
 /** The download section on the home page (install steps, checking, removal). */
 export const DOWNLOAD_INFO = "/#download";
